@@ -19,39 +19,58 @@ import static org.junit.Assert.*;
  * @author make
  */
 public class MapObjectTest {
-    
+
     public MapObjectTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     // @Test
     // public void hello() {}
-    
-    public void palauttaaPelaajallaXOikein(){
-        MapObject mo = new Player(1,2);
+    public void returnsPlayerXCorrectly() {
+        MapObject mo = new Player(1, 2);
         assertEquals(1, mo.getX());
     }
-    
-    public void palauttaaPelaajallaYOikein(){
-        MapObject mo = new Player(1,2);
+
+    public void returnsPlayerYCorrectly() {
+        MapObject mo = new Player(1, 2);
+        assertEquals(2, mo.getY());
+    }
+
+    public void returnsEnemyXCorrectly() {
+        MapObject mo = new Enemy(1, 2);
+        assertEquals(1, mo.getX());
+    }
+
+    public void returnsEnemyYCorrectly() {
+        MapObject mo = new Enemy(1, 2);
+        assertEquals(2, mo.getY());
+    }
+
+    public void returnsNCUXCorrectly() {
+        MapObject mo = new NCU(1, 2);
+        assertEquals(1, mo.getX());
+    }
+
+    public void returnsNCUYCorrectly() {
+        MapObject mo = new NCU(1, 2);
         assertEquals(2, mo.getY());
     }
 }

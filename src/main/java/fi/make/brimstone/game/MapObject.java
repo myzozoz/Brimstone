@@ -2,19 +2,19 @@ package fi.make.brimstone.game;
 
 public abstract class MapObject {
 
-    private int x;
-    private int y;
+    protected double x;
+    protected double y;
 
-    public MapObject(int x, int y) {
+    public MapObject(double x, double y) {
         this.x = x;
         this.y = y;
     }
-    
-    public int getX(){
+
+    public double getX() {
         return x;
     }
-    
-    public int getY(){
+
+    public double getY() {
         return y;
     }
 }

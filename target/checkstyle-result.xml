@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/domain/Main.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/Enemy.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/Game.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/Player.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/NCU.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/MapObject.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/game/Map.java">
+</file>
+<file name="/home/make/javalabra/Brimstone/src/main/java/fi/make/brimstone/helpers/Vector.java">
+</file>
+</checkstyle>
