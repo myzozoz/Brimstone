@@ -1,0 +1,8 @@
+brimstone/game/Enemy.class
+brimstone/game/Map.class
+brimstone/game/NCU.class
+brimstone/game/Player.class
+brimstone/domain/Main.class
+brimstone/game/Game.class
+brimstone/helpers/Vector.class
+brimstone/game/MapObject.class
