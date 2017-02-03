@@ -7,7 +7,7 @@ public class Player extends MapObject {
 
     private Vector speed;
 
-    public Player(int x, int y) {
+    public Player(double x, double y) {
         super(x, y, Variables.PLAYER_IMAGE);
         speed = Variables.PLAYER_SPEED;
     }

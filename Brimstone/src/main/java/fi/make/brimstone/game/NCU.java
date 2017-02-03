@@ -4,7 +4,7 @@ import fi.make.brimstone.helpers.Variables;
 
 public class NCU extends MapObject {
 
-    public NCU(int x, int y) {
+    public NCU(double x, double y) {
         super(x, y, Variables.WALL_IMAGE);
     }
 }

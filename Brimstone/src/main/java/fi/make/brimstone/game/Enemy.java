@@ -4,7 +4,7 @@ import fi.make.brimstone.helpers.Variables;
 
 public class Enemy extends MapObject {
 
-    public Enemy(int x, int y) {
+    public Enemy(double x, double y) {
         super(x, y, Variables.ENEMY_IMAGE);
     }
 }
