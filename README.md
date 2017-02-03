@@ -5,5 +5,5 @@ JavaLabran projekti. 2D top-down reaaliaikainen toimintapeli.
 - [Aihemäärittely](dokumentaatio/aihemaarittely.md)
 - [Aiheen kuvaus ja rakenne](dokumentaatio/aiheenKuvausJaRakenne.md)
 - [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
-- [Checkstyle-raportti](dokumentaatio/checkstyle-raportti/)
-- [pit-raportti](dokumentaatio/pit-raportti/)
+- [Checkstyle-raportti](http://htmlpreview.github.io/?https://github.com/myzozoz/Brimstone/blob/master/dokumentaatio/checkstyle-raportti/checkstyle.html)
+- [pit-raportti](http://htmlpreview.github.io/?https://github.com/myzozoz/Brimstone/blob/master/dokumentaatio/pit-raportti/index.html)
