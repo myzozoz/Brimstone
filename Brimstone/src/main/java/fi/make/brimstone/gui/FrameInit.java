@@ -29,7 +29,6 @@ public class FrameInit implements Runnable {
 
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //frame.setUndecorated(true);
-
         createComponents(frame.getContentPane());
 
         frame.pack();

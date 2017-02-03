@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fi.make.brimstone.game;
 
 import org.junit.After;
@@ -7,9 +12,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PlayerTest {
+/**
+ *
+ * @author make
+ */
+public class NCUTest {
 
-    public PlayerTest() {
+    public NCUTest() {
     }
 
     @BeforeClass
@@ -35,33 +44,19 @@ public class PlayerTest {
     // public void hello() {}
     @Test
     public void initXCorrect() {
-        Player p = new Player(100, 100);
-        assertEquals(100, p.getX(), 0.001);
+        NCU n = new NCU(100, 100);
+        assertEquals(100, n.getX(), 0.001);
     }
 
     @Test
     public void initYCorrect() {
-        Player p = new Player(100, 100);
-        assertEquals(100, p.getY(), 0.001);
-    }
-
-    @Test
-    public void updatesPlayerXPositionCorrectly() {
-        Player p = new Player(5, 5);
-        p.updatePosition();
-        assertEquals(6, p.getX(), 0.001);
-    }
-
-    @Test
-    public void updatesPlayerYPositionCorrectly() {
-        Player p = new Player(5, 5);
-        p.updatePosition();
-        assertEquals(6, p.getY(), 0.001);
+        NCU n = new NCU(100, 100);
+        assertEquals(100, n.getY(), 0.001);
     }
 
     @Test
     public void getImageDoesNotReturnNull() {
-        Player p = new Player(5,5);
-        assertTrue(p.getImage() != null);
+        NCU n = new NCU(5, 5);
+        assertTrue(n.getImage() != null);
     }
 }

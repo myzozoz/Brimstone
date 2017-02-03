@@ -9,21 +9,23 @@
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fi.make.brimstone.game;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.helpers.Vector;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../fi/make/brimstone/game/Player.html">Player</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../fi/make/brimstone/game/MapObject.html">MapObject</a> {
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>       <strong class="jxr_keyword">private</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a> speed = <strong class="jxr_keyword">new</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a>(1.0, 1.0);
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>       <strong class="jxr_keyword">public</strong> <a href="../../../../fi/make/brimstone/game/Player.html">Player</a>(<strong class="jxr_keyword">int</strong> x, <strong class="jxr_keyword">int</strong> y) {
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>          <strong class="jxr_keyword">super</strong>(x, y);
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>          System.out.println(<span class="jxr_string">"Player created"</span>);
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>      }
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> updatePosition() {
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>          x += speed.x;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>          y += speed.y;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>      }
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  }
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.helpers.Variables;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../fi/make/brimstone/game/Player.html">Player</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../fi/make/brimstone/game/MapObject.html">MapObject</a> {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       <strong class="jxr_keyword">private</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a> speed;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../fi/make/brimstone/game/Player.html">Player</a>(<strong class="jxr_keyword">int</strong> x, <strong class="jxr_keyword">int</strong> y) {
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>          <strong class="jxr_keyword">super</strong>(x, y, Variables.PLAYER_IMAGE);
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>          speed = Variables.PLAYER_SPEED;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      }
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> updatePosition() {
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          x += speed.x;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          y += speed.y;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      }
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

@@ -2,6 +2,7 @@ package fi.make.brimstone.game;
 
 import fi.make.brimstone.gui.FrameInit;
 //Controller class for the game logic, middle point between the logic and GUI
+
 public class Game {
 
     private Map map;
@@ -11,8 +12,6 @@ public class Game {
 
         FrameInit f = new FrameInit(map);
         f.run();
-        
-        
     }
 
 }

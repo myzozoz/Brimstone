@@ -5,6 +5,6 @@ import fi.make.brimstone.helpers.Variables;
 public class Enemy extends MapObject {
 
     public Enemy(int x, int y) {
-        super(x, y, Variables.eImagePath);
+        super(x, y, Variables.ENEMY_IMAGE);
     }
 }

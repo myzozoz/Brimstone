@@ -31,4 +31,12 @@ public class Map {
         l.addAll(ncus);
         return l;
     }
+
+    public void addEnemy(int x, int y) {
+        enms.add(new Enemy(x, y));
+    }
+
+    public void addNCU(int x, int y) {
+        ncus.add(new NCU(x, y));
+    }
 }
