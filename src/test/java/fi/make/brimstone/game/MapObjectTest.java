@@ -5,8 +5,8 @@
  */
 package fi.make.brimstone.game;
 
-import fi.make.brimstone.game.MapObject;
-import fi.make.brimstone.game.Player;
+//import fi.make.brimstone.game.MapObject;
+//import fi.make.brimstone.game.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,33 +44,39 @@ public class MapObjectTest {
     //
     // @Test
     // public void hello() {}
+    @Test
     public void returnsPlayerXCorrectly() {
         MapObject mo = new Player(1, 2);
-        assertEquals(1, mo.getX());
+        assertEquals(1, mo.getX(), 0.001);
     }
 
+    @Test
     public void returnsPlayerYCorrectly() {
         MapObject mo = new Player(1, 2);
-        assertEquals(2, mo.getY());
+        assertEquals(2, mo.getY(), 0.001);
     }
 
+    @Test
     public void returnsEnemyXCorrectly() {
         MapObject mo = new Enemy(1, 2);
-        assertEquals(1, mo.getX());
+        assertEquals(1, mo.getX(), 0.001);
     }
 
+    @Test
     public void returnsEnemyYCorrectly() {
         MapObject mo = new Enemy(1, 2);
-        assertEquals(2, mo.getY());
+        assertEquals(2, mo.getY(), 0.001);
     }
 
+    @Test
     public void returnsNCUXCorrectly() {
         MapObject mo = new NCU(1, 2);
-        assertEquals(1, mo.getX());
+        assertEquals(1, mo.getX(), 0.001);
     }
 
+    @Test
     public void returnsNCUYCorrectly() {
         MapObject mo = new NCU(1, 2);
-        assertEquals(2, mo.getY());
+        assertEquals(2, mo.getY(), 0.001);
     }
 }

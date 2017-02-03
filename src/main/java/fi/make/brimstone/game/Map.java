@@ -15,12 +15,12 @@ public class Map {
         ncus = new ArrayList();
         //Get the initial locations of all of the MapObjects that already exist
         //TEST
-        plr = new Player(1, 2);
-        enms.add(new Enemy(2, 3));
-        enms.add(new Enemy(3, 4));
-        ncus.add(new NCU(4, 5));
-        ncus.add(new NCU(5, 6));
-        ncus.add(new NCU(6, 7));
+        plr = new Player(50, 50);
+        enms.add(new Enemy(50, 100));
+        enms.add(new Enemy(50, 150));
+        ncus.add(new NCU(100, 200));
+        ncus.add(new NCU(100, 300));
+        ncus.add(new NCU(100, 400));
         //TEST
     }
 
