@@ -32,7 +32,7 @@ public class FrameInit implements Runnable {
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //frame.setUndecorated(true);
         createComponents(frame.getContentPane());
-        
+
         frame.pack();
         frame.setVisible(true);
     }
@@ -48,8 +48,8 @@ public class FrameInit implements Runnable {
         d.setSize(d.getWidth() * 0.75, d.getHeight() * 0.75);
         return d;
     }
-    
-    public DirectionListener getDirectionListener(){
+
+    public DirectionListener getDirectionListener() {
         return dl;
     }
 }

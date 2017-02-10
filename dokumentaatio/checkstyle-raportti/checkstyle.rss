@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 11,
+      <title>File: 14,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,34 +47,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.make.brimstone.helpers.Variables.java">fi/make/brimstone/helpers/Variables.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.helpers.Vector.java">fi/make/brimstone/helpers/Vector.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.game.Game.java">fi/make/brimstone/game/Game.java</a>
                 </td>
                 <td>
                   0
@@ -144,6 +116,76 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.game.Map.java">fi/make/brimstone/game/Map.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.helpers.Keys.java">fi/make/brimstone/helpers/Keys.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.helpers.Vector.java">fi/make/brimstone/helpers/Vector.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.game.Game.java">fi/make/brimstone/game/Game.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.helpers.Key.java">fi/make/brimstone/helpers/Key.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.make.brimstone.game.Player.java">fi/make/brimstone/game/Player.java</a>
                 </td>
                 <td>
@@ -172,7 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.game.Map.java">fi/make/brimstone/game/Map.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.gui.Painter.java">fi/make/brimstone/gui/Painter.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +228,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.gui.Painter.java">fi/make/brimstone/gui/Painter.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.make.brimstone.gui.DirectionListener.java">fi/make/brimstone/gui/DirectionListener.java</a>
                 </td>
                 <td>
                   0

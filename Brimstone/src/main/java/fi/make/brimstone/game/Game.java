@@ -5,6 +5,7 @@ import fi.make.brimstone.gui.DirectionListener;
 //Controller class for the game logic, middle point between the logic and GUI
 
 public class Game {
+
     private DirectionListener dl;
     private Map map;
 
@@ -16,23 +17,22 @@ public class Game {
         dl = f.getDirectionListener();
         loop();
     }
-    
-    private void loop(){
-        while(true){
+
+    private void loop() {
+        while (true) {
             update();
-            
-            
-            try{
+
+            try {
                 Thread.sleep(17);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
     }
 
-    private void update(){
-        
-        if (dl.isKeyDown("W")){
+    private void update() {
+
+        if (dl.isKeyDown("W")) {
             System.out.println("W");
         }
     }

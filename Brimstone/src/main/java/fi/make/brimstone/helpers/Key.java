@@ -1,7 +1,5 @@
 package fi.make.brimstone.helpers;
 
-import java.awt.event.KeyEvent;
-
 public class Key {
 
     private boolean pressed;

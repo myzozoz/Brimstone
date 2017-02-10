@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Keys xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../apidocs/fi/make/brimstone/helpers/Keys.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fi.make.brimstone.helpers;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.event.KeyEvent;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> javax.swing.KeyStroke;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">public</strong> enum <a href="../../../../fi/make/brimstone/helpers/Keys.html">Keys</a> {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>       UP(<span class="jxr_string">"Up"</span>, KeyEvent.VK_UP),
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>       DOWN(<span class="jxr_string">"Down"</span>, KeyEvent.VK_DOWN),
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>       LEFT(<span class="jxr_string">"Left"</span>, KeyEvent.VK_LEFT),
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      RIGHT(<span class="jxr_string">"Right"</span>, KeyEvent.VK_RIGHT),
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>      W(<span class="jxr_string">"W"</span>, KeyEvent.VK_W),
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      A(<span class="jxr_string">"A"</span>, KeyEvent.VK_A),
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      S(<span class="jxr_string">"S"</span>, KeyEvent.VK_S),
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>      D(<span class="jxr_string">"D"</span>, KeyEvent.VK_D);
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <a href="../../../../fi/make/brimstone/helpers/Keys.html">Keys</a>(String text, <strong class="jxr_keyword">int</strong> key) {
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <strong class="jxr_keyword">this</strong>.key = key;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          <strong class="jxr_keyword">this</strong>.name = text;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      }
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> key;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> String name;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getKey() {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <strong class="jxr_keyword">return</strong> key;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">public</strong> String getName() {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">return</strong> name;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      }
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>

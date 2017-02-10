@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.make.brimstone.game;
+package fi.make.brimstone.helpers;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,25 +16,26 @@ import static org.junit.Assert.*;
  *
  * @author make
  */
-public class GameTest {
-    Game g;
-    
-    public GameTest() {
+public class KeyTest {
+
+    Key k;
+
+    public KeyTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        g = new Game();
+        k = new Key("W", 83);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -44,6 +45,31 @@ public class GameTest {
     //
     // @Test
     // public void hello() {}
-    
+    @Test
+    public void returnsCorrectKeyName() {
+        assertEquals("W", k.getKeyName());
+    }
 
+    @Test
+    public void returnsCorrectKeyValue() {
+        assertEquals(83, k.getKey());
+    }
+
+    @Test
+    public void keyIsNotPressedAtStartup() {
+        assertFalse(k.isPressed());
+    }
+
+    @Test
+    public void keySetsPressed() {
+        k.press();
+        assertTrue(k.isPressed());
+    }
+
+    @Test
+    public void keyGetsReleased() {
+        k.press();
+        k.release();
+        assertFalse(k.isPressed());
+    }
 }
