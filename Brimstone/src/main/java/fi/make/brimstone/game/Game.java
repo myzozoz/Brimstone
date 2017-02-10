@@ -18,6 +18,15 @@ public class Game {
         loop();
     }
 
+    /**
+     * The game loop calls all the logic and GUI methods. 
+     * <p>
+     * It sleeps for 17 milliseconds, making the game run at approximately 
+     * 60 frames per second. Functions it calls are for example Update
+     * @see fi.make.brimstone.game.Game#update()
+     * 
+     * </p>
+     */
     private void loop() {
         while (true) {
             update();
