@@ -1,5 +1,7 @@
 package fi.make.brimstone.helpers;
 
+import java.util.HashMap;
+
 public class Variables {
 
     public static final String PLAYER_IMAGE = "pic/Player.png";

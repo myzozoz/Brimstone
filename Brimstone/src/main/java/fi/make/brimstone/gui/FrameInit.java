@@ -15,9 +15,11 @@ public class FrameInit implements Runnable {
     private List<MapObject> l;
     private JFrame frame;
     private Map m;
+    private DirectionListener dl;
 
     public FrameInit(Map m) {
         this.m = m;
+        this.dl = new DirectionListener();
     }
 
     @Override
@@ -30,12 +32,13 @@ public class FrameInit implements Runnable {
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //frame.setUndecorated(true);
         createComponents(frame.getContentPane());
-
+        
         frame.pack();
         frame.setVisible(true);
     }
 
     private void createComponents(Container container) {
+        frame.addKeyListener(dl);
         container.add(new Painter(m));
     }
 
@@ -44,5 +47,9 @@ public class FrameInit implements Runnable {
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         d.setSize(d.getWidth() * 0.75, d.getHeight() * 0.75);
         return d;
+    }
+    
+    public DirectionListener getDirectionListener(){
+        return dl;
     }
 }
