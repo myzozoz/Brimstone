@@ -18,6 +18,15 @@ public class DirectionListener implements KeyListener {
         }
     }
 
+    public boolean noKeyPressed() {
+        for (Key k : keys.values()) {
+            if (k.isPressed()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean isKeyDown(String s) {
         return keys.get(s).isPressed();
     }
@@ -79,7 +88,7 @@ public class DirectionListener implements KeyListener {
                 keys.get("S").release();
                 break;
             case KeyEvent.VK_D:
-                keys.get("D").press();
+                keys.get("D").release();
                 //move right
                 break;
         }

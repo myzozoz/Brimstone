@@ -39,4 +39,12 @@ public class Map {
     public void addNCU(int x, int y) {
         ncus.add(new NCU(x, y));
     }
+
+    public Player getPlayer() {
+        return plr;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enms;
+    }
 }

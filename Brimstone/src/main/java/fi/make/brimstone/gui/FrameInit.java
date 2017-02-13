@@ -16,6 +16,7 @@ public class FrameInit implements Runnable {
     private JFrame frame;
     private Map m;
     private DirectionListener dl;
+    private Painter p;
 
     public FrameInit(Map m) {
         this.m = m;
@@ -39,7 +40,8 @@ public class FrameInit implements Runnable {
 
     private void createComponents(Container container) {
         frame.addKeyListener(dl);
-        container.add(new Painter(m));
+        p = new Painter(m);
+        container.add(p);
     }
 
     //Creates the initial dimensions for the screen, when it starts windowed
@@ -51,5 +53,9 @@ public class FrameInit implements Runnable {
 
     public DirectionListener getDirectionListener() {
         return dl;
+    }
+
+    public Painter getPainter() {
+        return p;
     }
 }
