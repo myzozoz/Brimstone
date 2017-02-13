@@ -1,7 +1,5 @@
 package fi.make.brimstone.helpers;
 
-import java.util.HashMap;
-
 public class Variables {
 
     public static final String PLAYER_IMAGE = "pic/Player.png";
@@ -10,5 +8,5 @@ public class Variables {
 
     public static final Vector PLAYER_SPEED = new Vector(0, 0);
     public static final double ACCELERATION_MULTIPLIER = 0.001;
-    public static final double DECELERATION_MULTIPLIER = 0.1;
+    public static final double DECELERATION_MULTIPLIER = 0.001;
 }

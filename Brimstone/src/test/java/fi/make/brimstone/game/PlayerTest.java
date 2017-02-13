@@ -48,15 +48,15 @@ public class PlayerTest {
     @Test
     public void updatesPlayerXPositionCorrectly() {
         Player p = new Player(5, 5);
-        p.updatePosition();
-        assertEquals(6, p.getX(), 0.001);
+        p.updatePosition(1l);
+        assertEquals(5, p.getX(), 0.001);
     }
 
     @Test
     public void updatesPlayerYPositionCorrectly() {
         Player p = new Player(5, 5);
-        p.updatePosition();
-        assertEquals(6, p.getY(), 0.001);
+        p.updatePosition(1l);
+        assertEquals(5, p.getY(), 0.001);
     }
 
     @Test

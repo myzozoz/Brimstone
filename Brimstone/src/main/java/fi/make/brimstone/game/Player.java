@@ -28,6 +28,7 @@ public class Player extends MapObject {
     }
 
     public void decelerateVertical(long dTime) {
+        System.out.println("DECEL_VERT");
         if (speed.y > 0) {
             if (speed.y - decelConst * dTime < 0) {
                 speed.y = 0;
@@ -44,6 +45,7 @@ public class Player extends MapObject {
     }
 
     public void decelerateHorizontal(long dTime) {
+        System.out.println("DECEL_HORI");
         if (speed.x > 0) {
             if (speed.x - decelConst * dTime < 0) {
                 speed.x = 0;
