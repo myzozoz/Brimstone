@@ -2,16 +2,17 @@ package fi.make.brimstone.gui;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Map;
 import java.util.HashMap;
 import fi.make.brimstone.helpers.Key;
 import fi.make.brimstone.helpers.Keys;
+import fi.make.brimstone.game.MapController;
+import fi.make.brimstone.game.Player;
 
 public class DirectionListener implements KeyListener {
 
-    private Map<String, Key> keys;
+    private HashMap<String, Key> keys;
 
-    public DirectionListener() {
+    public DirectionListener(MapController map) {
         keys = new HashMap();
         for (Keys k : Keys.values()) {
             keys.put(k.getName(), new Key(k.getName(), k.getKey()));
@@ -68,6 +69,8 @@ public class DirectionListener implements KeyListener {
                 keys.get("D").press();
                 //move right
                 break;
+            default:
+                
         }
     }
 

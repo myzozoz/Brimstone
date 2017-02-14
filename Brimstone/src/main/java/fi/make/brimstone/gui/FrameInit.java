@@ -8,19 +8,21 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import fi.make.brimstone.game.Map;
+import fi.make.brimstone.game.MapController;
 
 public class FrameInit implements Runnable {
 
     private List<MapObject> l;
     private JFrame frame;
-    private Map m;
+    private MapController m;
     private DirectionListener dl;
     private Painter p;
+    private WindowResizeListener wrl;
 
-    public FrameInit(Map m) {
+    public FrameInit(MapController m) {
         this.m = m;
-        this.dl = new DirectionListener();
+        this.dl = new DirectionListener(m);
+        this.wrl = new WindowResizeListener(this);
     }
 
     @Override
@@ -40,7 +42,8 @@ public class FrameInit implements Runnable {
 
     private void createComponents(Container container) {
         frame.addKeyListener(dl);
-        p = new Painter(m);
+        frame.addComponentListener(wrl);
+        p = new Painter(m, frame.getContentPane().getSize());
         container.add(p);
     }
 
@@ -57,5 +60,9 @@ public class FrameInit implements Runnable {
 
     public Painter getPainter() {
         return p;
+    }
+    
+    public void adjustToResize() {
+        p.updateWindowSize(frame.getContentPane().getSize());
     }
 }

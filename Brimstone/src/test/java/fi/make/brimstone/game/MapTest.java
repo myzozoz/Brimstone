@@ -45,7 +45,7 @@ public class MapTest {
     
     @Test
     public void addingEnemiesIncreasesListSize(){
-        Map m = new Map();
+        MapController m = new MapController();
         int size = m.getAllObjects().size();
         m.addEnemy(0, 0);
         assertEquals(1, m.getAllObjects().size() - size);
@@ -53,7 +53,7 @@ public class MapTest {
     
     @Test
     public void addingNCUIncreasesListSize(){
-        Map m = new Map();
+        MapController m = new MapController();
         int size = m.getAllObjects().size();
         m.addNCU(0, 0);
         assertEquals(1, m.getAllObjects().size() - size);

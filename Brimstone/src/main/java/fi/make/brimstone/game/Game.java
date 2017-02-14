@@ -8,14 +8,14 @@ import fi.make.brimstone.gui.DirectionListener;
 public class Game {
 
     private DirectionListener dl;
-    private Map map;
+    private MapController map;
     private Painter p;
     private Player plr;
     private FrameInit f;
     private long lastFrame;
 
     public Game() {
-        map = new Map();
+        map = new MapController();
         f = new FrameInit(map);
         f.run();
         dl = f.getDirectionListener();
@@ -55,33 +55,10 @@ public class Game {
         long dTime = current - lastFrame;
         lastFrame = current;
 
-        updatePlayer(dTime);
+        map.mapUpdate(dTime, dl);
 
         plr.updatePosition(dTime);
     }
 
-    private void updatePlayer(long dTime) {
-        if (dl.isKeyDown("W") || dl.isKeyDown("S")) {
-            if (dl.isKeyDown("W")) {
-                plr.accelerate(0d, -1d, dTime);
-            }
-            if (dl.isKeyDown("S")) {
-                plr.accelerate(0d, 1d, dTime);
-            }
-        } else {
-            plr.decelerateVertical(dTime);
-        }
-
-        if (dl.isKeyDown("A") || dl.isKeyDown("D")) {
-            if (dl.isKeyDown("A")) {
-                plr.accelerate(-1d, 0d, dTime);
-            }
-            if (dl.isKeyDown("D")) {
-                plr.accelerate(1d, 0d, dTime);
-            }
-        } else {
-            plr.decelerateHorizontal(dTime);
-        }
-    }
 
 }
