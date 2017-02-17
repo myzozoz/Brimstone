@@ -5,6 +5,10 @@ import fi.make.brimstone.gui.Painter;
 import fi.make.brimstone.gui.DirectionListener;
 //Controller class for the game logic, middle point between the logic and GUI
 
+/**
+ *
+ * @author make
+ */
 public class Game {
 
     private DirectionListener dl;
@@ -14,6 +18,9 @@ public class Game {
     private FrameInit f;
     private long lastFrame;
 
+    /**
+     *
+     */
     public Game() {
         map = new MapController();
         f = new FrameInit(map);
@@ -24,26 +31,19 @@ public class Game {
         loop();
     }
 
-    /**
-     * The game loop calls all the logic and GUI methods.
-     * <p>
-     * It sleeps for 17 milliseconds, making the game run at approximately 60
-     * frames per second. Functions it calls are for example Update
-     *
-     * @see fi.make.brimstone.game.Game#update()
-     *
-     * </p>
-     */
     private void loop() {
         long lastFrame = System.currentTimeMillis();
 
         while (true) {
+            long beginUpdateTime = System.currentTimeMillis();
             update();
-            System.out.println(plr.getSpeed());
+//            System.out.println(plr.getSpeed());
             p.repaint();
-
+            long endUpdateTime = System.currentTimeMillis();
+            long dTime = endUpdateTime - beginUpdateTime;
+            System.out.println("dTime: " + dTime);
             try {
-                Thread.sleep(17);
+                Thread.sleep(17l - dTime);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -59,6 +59,5 @@ public class Game {
 
         plr.updatePosition(dTime);
     }
-
 
 }

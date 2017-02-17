@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.make.brimstone.helpers;
+package fi.make.brimstone.game;
 
-import fi.make.brimstone.helpers.Vector;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author make
  */
-public class VectorTest {
+public class LevelTest {
 
-    public VectorTest() {
+    public LevelTest() {
     }
 
     @BeforeClass
@@ -44,20 +43,32 @@ public class VectorTest {
     // @Test
     // public void hello() {}
     @Test
-    public void setsXCorrectly() {
-        Vector v = new Vector(2.5, 3.0);
-        assertEquals(2.5, v.x, 0.001);
+    public void initXCorrect() {
+        Level l = new Level(0, 0);
+        assertEquals(0, l.getX(), 0.001);
     }
 
     @Test
-    public void setsYCorrectly() {
-        Vector v = new Vector(2.5, 3.0);
-        assertEquals(3.0, v.y, 0.001);
+    public void initYCorrect() {
+        Level l = new Level(0, 0);
+        assertEquals(0, l.getY(), 0.001);
     }
 
     @Test
-    public void returnsCorrectString() {
-        Vector v = new Vector(2.5, 3.0);
-        assertEquals("( 2.5, 3.0)", v.toString());
+    public void getImageDoesNotReturnNull() {
+        Level l = new Level(5, 5);
+        assertTrue(l.getImage() != null);
+    }
+
+    @Test
+    public void returnsCorrectXDimension() {
+        Level l = new Level(0,0);
+        assertEquals(3000, l.getLevelDimensions().x, 0.001);
+    }
+    
+        @Test
+    public void returnsCorrectYDimension() {
+        Level l = new Level(0,0);
+        assertEquals(3000, l.getLevelDimensions().y, 0.001);
     }
 }

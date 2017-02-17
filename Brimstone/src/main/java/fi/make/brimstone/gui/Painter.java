@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Dimension;
 
-import java.util.ArrayList;
 
 import fi.make.brimstone.game.MapController;
 import fi.make.brimstone.game.Player;
@@ -31,7 +30,7 @@ public class Painter extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        System.out.println(d);
+        System.out.println("paintComponent called");
         
         //ALWAYS at index 0 is the LEVEL, and at index 1 the PLAYER
         //ArrayList<MapObject> items = (ArrayList) m.getAllObjects();
@@ -43,5 +42,11 @@ public class Painter extends JPanel {
     
     public void updateWindowSize(Dimension d){
         this.d = d;
+    }
+    
+    @Override
+    public void repaint(){
+        super.repaint();
+        System.out.println("repaint called");
     }
 }

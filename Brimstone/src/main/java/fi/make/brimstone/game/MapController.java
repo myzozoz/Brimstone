@@ -6,6 +6,11 @@ import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.Vector;
 
 //Container class for all of the map objects
+
+/**
+ * Takes care of the level and the objects within it.
+ * @author make
+ */
 public class MapController {
 
     private Player plr;
@@ -13,6 +18,9 @@ public class MapController {
     private List<Enemy> enms;
     private List<NCU> ncus;
 
+    /**
+     *
+     */
     public MapController() {
         enms = new ArrayList();
         ncus = new ArrayList();
@@ -28,6 +36,10 @@ public class MapController {
         //TEST
     }
 
+    /**
+     *
+     * @return Returns all MapObjects possessed by the MapController as a List.
+     */
     public List<MapObject> getAllObjects() {
         List<MapObject> l = new ArrayList();
         l.add(lvl0);
@@ -37,22 +49,47 @@ public class MapController {
         return l;
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void addEnemy(int x, int y) {
         enms.add(new Enemy(x, y));
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public void addNCU(int x, int y) {
         ncus.add(new NCU(x, y));
     }
 
+    /**
+     *
+     * @return
+     */
     public Player getPlayer() {
         return plr;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Enemy> getEnemies() {
         return enms;
     }
 
+    /**
+     * This method is called by the general update method possessed by the 
+     * Game class. It takes care of updating the logic side of the game.
+     * 
+     * @param dTime Time since last update.
+     * @param dl Reference to the KeyListener class.
+     */
     public void mapUpdate(long dTime, DirectionListener dl) {
         updatePlayer(dTime, dl);
         checkPlayerCollisions();

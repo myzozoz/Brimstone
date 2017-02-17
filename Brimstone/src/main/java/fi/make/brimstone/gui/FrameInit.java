@@ -61,7 +61,7 @@ public class FrameInit implements Runnable {
     public Painter getPainter() {
         return p;
     }
-    
+
     public void adjustToResize() {
         p.updateWindowSize(frame.getContentPane().getSize());
     }
