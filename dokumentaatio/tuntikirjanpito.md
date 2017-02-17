@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 5.0h | Game-Loopin luominen, syötteen antaminen onnistuu nyt, dokumentaatiota jne.
 13.02.2017 | 4.0h | Pelaajahahmoa pystyy liikuttamaan WASDilla, Swingin vääntöä
 14.02.2017 | 3.0h | Luotu kartta-olio, pelaajan liikkuminen on nyt rajattu sisälle. Kamera seuraa pelaajaa.
+16.02.2017 | 2.0h | Yritetty korjata FPS-bugia.
