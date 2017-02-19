@@ -26,7 +26,7 @@ public class FrameInit extends Canvas implements Runnable {
 
     public FrameInit(MapController m) {
         this.m = m;
-        this.dl = new DirectionListener(m);
+        this.dl = new DirectionListener();
         this.wrl = new WindowResizeListener(this);
         this.plr = m.getPlayer();
     }

@@ -1,12 +1,12 @@
 package fi.make.brimstone.gui;
 
 import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Dimension;
-import java.awt.Canvas;
+import java.awt.Toolkit;
+import java.awt.image.BufferStrategy;
 
 import fi.make.brimstone.game.MapController;
 import fi.make.brimstone.game.Player;
@@ -35,6 +35,8 @@ public class Painter extends JPanel {
         for (MapObject mo : m.getAllObjects()) {
             g.drawImage(mo.getImage(), (int) (mo.getX() - plr.getX()) + (d.width / 2), (int) (mo.getY() - plr.getY() + (d.height / 2)), this);
         }
+        
+        Toolkit.getDefaultToolkit().sync();
     }
 
     public void updateWindowSize(Dimension d) {

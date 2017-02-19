@@ -5,14 +5,13 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import fi.make.brimstone.helpers.Key;
 import fi.make.brimstone.helpers.Keys;
-import fi.make.brimstone.game.MapController;
-import fi.make.brimstone.game.Player;
+
 
 public class DirectionListener implements KeyListener {
 
     private HashMap<String, Key> keys;
 
-    public DirectionListener(MapController map) {
+    public DirectionListener() {
         keys = new HashMap();
         for (Keys k : Keys.values()) {
             keys.put(k.getName(), new Key(k.getName(), k.getKey()));
@@ -77,6 +76,7 @@ public class DirectionListener implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         //System.out.println(e.getKeyCode() + " released");
+        
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
                 //move up
