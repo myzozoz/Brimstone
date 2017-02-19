@@ -1,22 +1,23 @@
 package fi.make.brimstone.gui;
 
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Dimension;
-
+import java.awt.Canvas;
 
 import fi.make.brimstone.game.MapController;
 import fi.make.brimstone.game.Player;
 import fi.make.brimstone.game.MapObject;
 
 public class Painter extends JPanel {
+
     private Dimension d;
     private Player plr;
     private MapController m;
     private Image plrImage;
-    
 
     public Painter(MapController m, Dimension d) {
         super.setBackground(Color.GREEN);
@@ -26,27 +27,18 @@ public class Painter extends JPanel {
         this.d = d;
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
         System.out.println("paintComponent called");
-        
-        //ALWAYS at index 0 is the LEVEL, and at index 1 the PLAYER
-        //ArrayList<MapObject> items = (ArrayList) m.getAllObjects();
-        
+
         for (MapObject mo : m.getAllObjects()) {
             g.drawImage(mo.getImage(), (int) (mo.getX() - plr.getX()) + (d.width / 2), (int) (mo.getY() - plr.getY() + (d.height / 2)), this);
         }
     }
-    
-    public void updateWindowSize(Dimension d){
+
+    public void updateWindowSize(Dimension d) {
         this.d = d;
     }
-    
-    @Override
-    public void repaint(){
-        super.repaint();
-        System.out.println("repaint called");
-    }
+
 }

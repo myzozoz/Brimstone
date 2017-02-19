@@ -48,7 +48,7 @@ public class Player extends MapObject {
 
     /**
      * Decelerates the player. Stops him at 0.
-     * 
+     *
      * @param dTime Time since last update (ms).
      */
     public void decelerateVertical(long dTime) {
@@ -96,7 +96,7 @@ public class Player extends MapObject {
     public Vector getSpeed() {
         return speed;
     }
-    
+
     /**
      *
      * @param newSpeed
@@ -104,20 +104,20 @@ public class Player extends MapObject {
     public void setSpeed(Vector newSpeed) {
         speed = newSpeed;
     }
-    
+
     /**
      *
      * @param x
      */
-    public void setX(double x){
+    public void setX(double x) {
         this.x = x;
     }
-    
+
     /**
      *
      * @param y
      */
-    public void setY(double y){
+    public void setY(double y) {
         this.y = y;
     }
 

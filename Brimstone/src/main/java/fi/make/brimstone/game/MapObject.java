@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 
 /**
  * Abstract class template for drawable objects on the map.
+ *
  * @author make
  */
 public abstract class MapObject {
@@ -26,8 +27,8 @@ public abstract class MapObject {
 
     /**
      *
-     * @param x 
-     * @param y 
+     * @param x
+     * @param y
      * @param imagePath Path for the image file used for drawing.
      */
     public MapObject(double x, double y, String imagePath) {

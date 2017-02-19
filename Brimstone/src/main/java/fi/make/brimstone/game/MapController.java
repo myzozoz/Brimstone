@@ -6,9 +6,9 @@ import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.Vector;
 
 //Container class for all of the map objects
-
 /**
  * Takes care of the level and the objects within it.
+ *
  * @author make
  */
 public class MapController {
@@ -84,9 +84,9 @@ public class MapController {
     }
 
     /**
-     * This method is called by the general update method possessed by the 
-     * Game class. It takes care of updating the logic side of the game.
-     * 
+     * This method is called by the general update method possessed by the Game
+     * class. It takes care of updating the logic side of the game.
+     *
      * @param dTime Time since last update.
      * @param dl Reference to the KeyListener class.
      */
