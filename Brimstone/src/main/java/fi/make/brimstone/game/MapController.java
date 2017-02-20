@@ -93,6 +93,7 @@ public class MapController {
     public void mapUpdate(long dTime, DirectionListener dl) {
         updatePlayer(dTime, dl);
         checkPlayerCollisions();
+        updateEnemies(dTime);
     }
 
     private void updatePlayer(long dTime, DirectionListener dl) {
@@ -123,12 +124,22 @@ public class MapController {
         double speedX = plr.getSpeed().x;
         double speedY = plr.getSpeed().y;
 
+        //WALLS
         if (plr.getX() < 32 || plr.getX() > lvl0.getLevelDimensions().x - 64) {
             plr.setSpeed(new Vector(-0.5 * speedX, speedY));
         }
         if (plr.getY() < 32 || plr.getY() > lvl0.getLevelDimensions().y - 64) {
             plr.setSpeed(new Vector(speedX, -0.5 * speedY));
         }
+
+        for (Enemy e : enms) {
+            if (e.getX() - plr.getX() < 32 && e.getX() - plr.getX() > -32
+                    && e.getY() - plr.getY() < 32 && e.getY() - plr.getY() > -32) {
+                //TODO Game Over -code
+                System.out.println("GAME OVER");
+            }
+        }
+        
         unStickPlayer();
     }
 
@@ -142,6 +153,19 @@ public class MapController {
             plr.setY(32);
         } else if (plr.getY() > lvl0.getLevelDimensions().y - 64) {
             plr.setY(lvl0.getLevelDimensions().y - 64);
+        }
+    }
+    
+    private void updateEnemies(double dTime){
+        System.out.println("------------------------");
+        for (Enemy e : enms){
+            Vector dPlayerEnemy = new Vector(plr.getX() - e.getX(), plr.getY() - e.getY());
+            Vector newDirection = new Vector(dPlayerEnemy.x / dPlayerEnemy.getAbs(), dPlayerEnemy.y / dPlayerEnemy.getAbs());
+            System.out.println("nuDir: " + newDirection);
+            e.setDirection(newDirection);
+            e.updatePosition(dTime);
+            System.out.println("speed: " + e.getSpeed());
+            System.out.println("dir: " + e.getDirection());
         }
     }
 }

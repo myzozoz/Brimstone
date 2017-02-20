@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 13.02.2017 | 4.0h | Pelaajahahmoa pystyy liikuttamaan WASDilla, Swingin vääntöä
 14.02.2017 | 3.0h | Luotu kartta-olio, pelaajan liikkuminen on nyt rajattu sisälle. Kamera seuraa pelaajaa.
 16.02.2017 | 2.0h | Yritetty korjata FPS-bugia.
+19.02.2017 | 4.0h | Vihdoinkin korjattu kyseinen FPS-bugi. Lisätty pelaajalle nopeuskatto, aloitettu työstämään vihollisen logiikkaa.

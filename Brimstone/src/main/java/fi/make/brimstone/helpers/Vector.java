@@ -10,6 +10,10 @@ public class Vector {
         this.y = y;
     }
 
+    public double getAbs(){
+        return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+    }
+    
     @Override
     public String toString() {
         return "( " + x + ", " + y + ")";

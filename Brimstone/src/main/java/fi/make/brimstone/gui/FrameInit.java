@@ -1,6 +1,5 @@
 package fi.make.brimstone.gui;
 
-import java.awt.Graphics;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -9,9 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import fi.make.brimstone.game.MapController;
-import fi.make.brimstone.game.MapObject;
 import fi.make.brimstone.game.Player;
-import java.awt.image.BufferStrategy;
 
 public class FrameInit extends Canvas implements Runnable {
 

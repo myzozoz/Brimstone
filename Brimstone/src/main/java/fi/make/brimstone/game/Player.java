@@ -44,6 +44,9 @@ public class Player extends MapObject {
 //        System.out.println("ACCELERATING");
         speed.x += x * accelConst * dTime;
         speed.y += y * accelConst * dTime;
+        if (getSpeedAbs() > Variables.PLAYER_MAX_SPEED){
+            setSpeed(Variables.PLAYER_MAX_SPEED);
+        }
     }
 
     /**
@@ -96,6 +99,14 @@ public class Player extends MapObject {
     public Vector getSpeed() {
         return speed;
     }
+    
+    public double getSpeedAbs() {
+        return Math.sqrt(Math.pow(speed.x, 2) + Math.pow(speed.y, 2));
+    }
+    
+    public Vector getDirection() {
+        return new Vector(speed.x / getSpeedAbs(), speed.y / getSpeedAbs());
+    }
 
     /**
      *
@@ -103,6 +114,11 @@ public class Player extends MapObject {
      */
     public void setSpeed(Vector newSpeed) {
         speed = newSpeed;
+    }
+    
+    public void setSpeed(double speed){
+        this.speed.x = getDirection().x * speed;
+        this.speed.y = getDirection().y * speed;
     }
 
     /**

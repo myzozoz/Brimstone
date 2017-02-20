@@ -35,15 +35,10 @@ public class Game {
         long lastFrame = System.currentTimeMillis();
 
         while (true) {
-            long beginUpdateTime = System.currentTimeMillis();
             update();
-//            System.out.println(plr.getSpeed());
             p.repaint();
-            long endUpdateTime = System.currentTimeMillis();
-            long dTime = endUpdateTime - beginUpdateTime;
-            System.out.println("dTime: " + dTime);
             try {
-                Thread.sleep(17l - dTime);
+                Thread.sleep(5l);
             } catch (Exception e) {
                 System.out.println(e);
             }

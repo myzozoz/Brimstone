@@ -30,7 +30,6 @@ public class Painter extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        System.out.println("paintComponent called");
 
         for (MapObject mo : m.getAllObjects()) {
             g.drawImage(mo.getImage(), (int) (mo.getX() - plr.getX()) + (d.width / 2), (int) (mo.getY() - plr.getY() + (d.height / 2)), this);
