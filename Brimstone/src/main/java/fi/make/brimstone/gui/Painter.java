@@ -33,7 +33,10 @@ public class Painter extends JPanel {
             g.drawImage(mo.getImage(), (int) (mo.getX() - plr.getX())
                     + (d.width / 2), (int) (mo.getY() - plr.getY() + (d.height / 2)), this);
         }
-
+        String printable = m.getScreenPrint();
+        if (printable != null) {
+            g.drawString(printable, 50, 50);
+        }
         Toolkit.getDefaultToolkit().sync();
     }
 

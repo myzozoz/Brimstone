@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.Vector;
+import fi.make.brimstone.helpers.CollisionManager;
 
 //Container class for all of the map objects
 /**
@@ -17,6 +18,7 @@ public class MapController {
     private Level lvl0;
     private List<Enemy> enemies;
     private List<NCU> ncus;
+    private String printOnScreen;
 
     /**
      *
@@ -30,9 +32,9 @@ public class MapController {
         lvl0 = new Level(0, 0);
         enemies.add(new Enemy(1000, 100, player));
         enemies.add(new Enemy(50, 1000, player));
-        ncus.add(new NCU(100, 200));
-        ncus.add(new NCU(100, 300));
-        ncus.add(new NCU(100, 400));
+        ncus.add(new NCU(1000, 200));
+        ncus.add(new NCU(1000, 232));
+        ncus.add(new NCU(1000, 264));
         //TEST
     }
 
@@ -94,6 +96,7 @@ public class MapController {
         updatePlayer(dTime, dl);
         checkPlayerCollisions();
         updateEnemies(dTime);
+        
     }
 
     private void updatePlayer(long dTime, DirectionListener dl) {
@@ -124,7 +127,7 @@ public class MapController {
         double speedX = player.getSpeed().x;
         double speedY = player.getSpeed().y;
 
-        //WALLS
+        //OUTER WALLS
         if (player.getX() < 32 || player.getX() > lvl0.getLevelDimensions().x - 64) {
             player.setSpeed(new Vector(-0.5 * speedX, speedY));
         }
@@ -132,33 +135,29 @@ public class MapController {
             player.setSpeed(new Vector(speedX, -0.5 * speedY));
         }
 
+        //ENEMIES
         for (Enemy e : enemies) {
-            if (e.getX() - player.getX() < 32 && e.getX() - player.getX() > -32
-                    && e.getY() - player.getY() < 32 && e.getY() - player.getY() > -32) {
-                //TODO Game Over -code
-                System.out.println("GAME OVER");
+            if (CollisionManager.collides(player, e)) {
+//                System.out.println("GAME OVER");
+                //TODO: game over
             }
         }
-        
-        unStickPlayer();
+
+        //NCUs
+        for (NCU n : ncus) {
+            if (CollisionManager.collides(player, n)) {
+                this.printOnScreen = "hitting wall\n";
+                CollisionManager.redirectPlayerFromWall(player, n);
+            }
+        }
+
+        CollisionManager.unStickPlayer(player, lvl0);
     }
 
-    private void unStickPlayer() {
-        if (player.getX() < 32) {
-            player.setX(32);
-        } else if (player.getX() > lvl0.getLevelDimensions().x - 64) {
-            player.setX(lvl0.getLevelDimensions().x - 64);
-        }
-        if (player.getY() < 32) {
-            player.setY(32);
-        } else if (player.getY() > lvl0.getLevelDimensions().y - 64) {
-            player.setY(lvl0.getLevelDimensions().y - 64);
-        }
-    }
-    
-    private void updateEnemies(double dTime){
-        System.out.println("------------------------");
-        for (Enemy e : enemies){
+
+
+    private void updateEnemies(double dTime) {
+        for (Enemy e : enemies) {
 //            Vector dPlayerEnemy = new Vector(plr.getX() - e.getX(), plr.getY() - e.getY());
 //            Vector newDirection = new Vector(dPlayerEnemy.x / dPlayerEnemy.getAbs(), dPlayerEnemy.y / dPlayerEnemy.getAbs());
 //            e.setDirection(newDirection);
@@ -166,6 +165,9 @@ public class MapController {
             e.move();
         }
     }
-    
-    
+
+    public String getScreenPrint() {
+        return this.printOnScreen;
+    }
+
 }

@@ -78,9 +78,7 @@ public class Enemy extends MapObject {
 //    
     public void move() {
         Vector toPlayer = new Vector(player.getX() - x, player.getY() - y);
-        System.out.println(toPlayer);
         Vector toPlayerAdj = new Vector(toPlayer.x / toPlayer.getAbs(), toPlayer.y / toPlayer.getAbs());
-        System.out.println(toPlayerAdj);
         x += toPlayer.x / toPlayer.getAbs() * Variables.ENEMY_DEFAULT_SPEED;
         y += toPlayer.y / toPlayer.getAbs() * Variables.ENEMY_DEFAULT_SPEED;
     }
