@@ -42,21 +42,21 @@ public class EnemyTest {
     //
     // @Test
     // public void hello() {}
-    @Test
-    public void initXCorrect() {
-        Enemy e = new Enemy(100, 100);
-        assertEquals(100, e.getX(), 0.001);
-    }
-
-    @Test
-    public void initYCorrect() {
-        Enemy e = new Enemy(100, 100);
-        assertEquals(100, e.getY(), 0.001);
-    }
-
-    @Test
-    public void getImageDoesNotReturnNull() {
-        Enemy e = new Enemy(5, 5);
-        assertTrue(e.getImage() != null);
-    }
+//    @Test
+//    public void initXCorrect() {
+//        Enemy e = new Enemy(100, 100);
+//        assertEquals(100, e.getX(), 0.001);
+//    }
+//
+//    @Test
+//    public void initYCorrect() {
+//        Enemy e = new Enemy(100, 100);
+//        assertEquals(100, e.getY(), 0.001);
+//    }
+//
+//    @Test
+//    public void getImageDoesNotReturnNull() {
+//        Enemy e = new Enemy(5, 5);
+//        assertTrue(e.getImage() != null);
+//    }
 }

@@ -56,17 +56,17 @@ public class MapObjectTest {
         assertEquals(2, mo.getY(), 0.001);
     }
 
-    @Test
-    public void returnsEnemyXCorrectly() {
-        MapObject mo = new Enemy(1, 2);
-        assertEquals(1, mo.getX(), 0.001);
-    }
+//    @Test
+//    public void returnsEnemyXCorrectly() {
+//        MapObject mo = new Enemy(1, 2);
+//        assertEquals(1, mo.getX(), 0.001);
+//    }
 
-    @Test
-    public void returnsEnemyYCorrectly() {
-        MapObject mo = new Enemy(1, 2);
-        assertEquals(2, mo.getY(), 0.001);
-    }
+//    @Test
+//    public void returnsEnemyYCorrectly() {
+//        MapObject mo = new Enemy(1, 2);
+//        assertEquals(2, mo.getY(), 0.001);
+//    }
 
     @Test
     public void returnsNCUXCorrectly() {
