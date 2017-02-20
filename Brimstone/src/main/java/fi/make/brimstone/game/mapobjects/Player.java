@@ -1,8 +1,8 @@
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
 import fi.make.brimstone.helpers.Vector;
 import fi.make.brimstone.helpers.Variables;
-
+import fi.make.brimstone.helpers.FlameDirection;
 /**
  *
  * @author make
@@ -12,6 +12,8 @@ public class Player extends MapObject {
     private Vector speed;
     private double accelConst;
     private double decelConst;
+    private int flameLength;
+    private FlameDirection flameDir;
 
     /**
      *
@@ -23,6 +25,7 @@ public class Player extends MapObject {
         accelConst = Variables.ACCELERATION_MULTIPLIER;
         decelConst = Variables.DECELERATION_MULTIPLIER;
         speed = Variables.PLAYER_SPEED;
+        flameDir = FlameDirection.UP;
     }
 
     /**
@@ -32,6 +35,7 @@ public class Player extends MapObject {
     public void updatePosition(long dTime) {
         x += speed.x * dTime;
         y += speed.y * dTime;
+        setFlameLength();
     }
 
     /**
@@ -136,5 +140,21 @@ public class Player extends MapObject {
     public void setY(double y) {
         this.y = y;
     }
-
+    
+    public void setFlameLength(){
+        flameLength = (int)(3.0 * getSpeedAbs());
+        System.out.println("flameLength: " + flameLength);
+    }
+    
+    public int getFlameLength(){
+        return flameLength;
+    }
+    
+    public FlameDirection getFlameDir(){
+        return flameDir;
+    }
+    
+    public void setFlameDir(FlameDirection f){
+        flameDir = f;
+    }
 }

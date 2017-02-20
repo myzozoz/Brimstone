@@ -1,5 +1,7 @@
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
+import fi.make.brimstone.game.mapobjects.MapObject;
+import fi.make.brimstone.game.mapobjects.Player;
 import fi.make.brimstone.helpers.Variables;
 import fi.make.brimstone.helpers.Vector;
 
@@ -23,28 +25,26 @@ public class Enemy extends MapObject {
     public Enemy(double x, double y, Player p) {
         super(x, y, Variables.ENEMY_IMAGE);
         player = p;
-        oldLocation = new double[]{x,y};
+        oldLocation = new double[]{x, y};
 //        dir = new Vector(0, 0);
 //        speed = new Vector(0, 0);
 //        setDefaultSpeed();
     }
 
     public void move(long dTime) {
-        System.out.println();
         oldLocation[0] = x;
         oldLocation[1] = y;
         Vector toPlayer = new Vector(player.getX() - x, player.getY() - y);
         x += (toPlayer.x / toPlayer.getAbs()) * Variables.ENEMY_DEFAULT_SPEED;
         y += (toPlayer.y / toPlayer.getAbs()) * Variables.ENEMY_DEFAULT_SPEED;
-        System.out.println("x: " + x + ", y: " + y);
     }
-    
+
     public void revertMove() {
         x = oldLocation[0];
         y = oldLocation[1];
     }
-    
-    public double getDistanceToPlayer(){
+
+    public double getDistanceToPlayer() {
         Vector toPlayer = new Vector(player.getX() - x, player.getY() - y);
         return toPlayer.getAbs();
     }

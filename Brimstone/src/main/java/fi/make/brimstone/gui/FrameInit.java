@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import fi.make.brimstone.game.MapController;
-import fi.make.brimstone.game.Player;
+import fi.make.brimstone.game.mapobjects.Player;
 
 public class FrameInit extends Canvas implements Runnable {
 
@@ -17,15 +17,11 @@ public class FrameInit extends Canvas implements Runnable {
     private DirectionListener dl;
     private Painter p;
     private WindowResizeListener wrl;
-    private Player plr;
-
-    private Thread thread;
 
     public FrameInit(MapController m) {
         this.m = m;
-        this.dl = new DirectionListener();
+        this.dl = new DirectionListener(m);
         this.wrl = new WindowResizeListener(this);
-        this.plr = m.getPlayer();
     }
 
     @Override
@@ -67,5 +63,9 @@ public class FrameInit extends Canvas implements Runnable {
 
     public void adjustToResize() {
         p.updateWindowSize(frame.getContentPane().getSize());
+    }
+    
+    public void changePlayerFlameDirection(int i){
+        
     }
 }

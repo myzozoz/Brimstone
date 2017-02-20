@@ -1,4 +1,4 @@
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;

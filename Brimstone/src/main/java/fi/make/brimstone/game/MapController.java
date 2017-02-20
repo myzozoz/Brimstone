@@ -1,10 +1,21 @@
 package fi.make.brimstone.game;
 
+import fi.make.brimstone.game.mapobjects.Level;
+import fi.make.brimstone.game.mapobjects.Enemy;
+import fi.make.brimstone.game.mapobjects.MapObject;
+import fi.make.brimstone.game.mapobjects.NCU;
+import fi.make.brimstone.game.mapobjects.Player;
+import fi.make.brimstone.game.mapobjects.flames.Flame;
+import fi.make.brimstone.game.mapobjects.flames.DownFlame;
+import fi.make.brimstone.game.mapobjects.flames.LeftFlame;
+import fi.make.brimstone.game.mapobjects.flames.RightFlame;
+import fi.make.brimstone.game.mapobjects.flames.UpFlame;
 import java.util.List;
 import java.util.ArrayList;
 import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.Vector;
 import fi.make.brimstone.helpers.CollisionManager;
+import fi.make.brimstone.helpers.FlameDirection;
 
 //Container class for all of the map objects
 /**
@@ -18,12 +29,14 @@ public class MapController {
     private Level lvl0;
     private List<Enemy> enemies;
     private List<NCU> ncus;
+    private List<Flame> flames;
     private String printOnScreen;
 
     /**
      *
      */
     public MapController() {
+        flames = new ArrayList();
         enemies = new ArrayList();
         ncus = new ArrayList();
         //Get the initial locations of all of the MapObjects that already exist
@@ -32,8 +45,8 @@ public class MapController {
         lvl0 = new Level(0, 0);
         enemies.add(new Enemy(1000, 100, player));
         enemies.add(new Enemy(50, 1000, player));
-        enemies.add(new Enemy(2000,2000, player));
-        enemies.add(new Enemy(2000,200, player));
+        enemies.add(new Enemy(2000, 2000, player));
+        enemies.add(new Enemy(2000, 200, player));
         ncus.add(new NCU(1000, 200));
         ncus.add(new NCU(1000, 232));
         ncus.add(new NCU(1000, 264));
@@ -47,11 +60,13 @@ public class MapController {
      * @return Returns all MapObjects possessed by the MapController as a List.
      */
     public List<MapObject> getAllObjects() {
+        playerFlames();
         List<MapObject> l = new ArrayList();
         l.add(lvl0);
         l.add(player);
         l.addAll(enemies);
         l.addAll(ncus);
+        l.addAll(flames);
         return l;
     }
 
@@ -100,7 +115,7 @@ public class MapController {
         updatePlayer(dTime, dl);
         checkPlayerCollisions();
         updateEnemies(dTime);
-        
+
     }
 
     private void updatePlayer(long dTime, DirectionListener dl) {
@@ -158,36 +173,61 @@ public class MapController {
         CollisionManager.unStickPlayer(player, lvl0);
     }
 
-
-
     private void updateEnemies(long dTime) {
         for (int i = 0; i < enemies.size(); i++) {
+            for (Flame f : flames){
+                if (CollisionManager.collides(enemies.get(i), f)){
+                    enemies.remove(i);
+                    return;
+                }
+            }
+            
             boolean canMove = true;
-            for (NCU n : ncus){
-                if (CollisionManager.collides(enemies.get(i), n)){
+            for (NCU n : ncus) {
+                if (CollisionManager.collides(enemies.get(i), n)) {
                     printOnScreen = "Enemy hitting wall";
                     canMove = false;
                 }
             }
-            
+
             //takes care of enemy collision by stopping the one further away from the player
-            for (int a = 0; a < enemies.size(); a++){
-                if (a != i && CollisionManager.collides(enemies.get(a), enemies.get(i))){
-                    if (enemies.get(i).getDistanceToPlayer() > enemies.get(a).getDistanceToPlayer()){
+            for (int a = 0; a < enemies.size(); a++) {
+                if (a != i && CollisionManager.collides(enemies.get(a), enemies.get(i))) {
+                    if (enemies.get(i).getDistanceToPlayer() > enemies.get(a).getDistanceToPlayer()) {
                         canMove = false;
                     }
                 }
             }
-            if (canMove){
+            if (canMove) {
                 enemies.get(i).move(dTime);
             } else {
                 enemies.get(i).revertMove();
             }
         }
     }
-    
+
     public String getScreenPrint() {
         return this.printOnScreen;
+    }
+
+    private void playerFlames() {
+        flames.clear();
+        for (int i = 0; i < player.getFlameLength(); i++) {
+            switch (player.getFlameDir()) {
+                case UP:
+                    flames.add(new UpFlame(player.getX(), player.getY() - 32 * (i + 1)));
+                    break;
+                case DOWN:
+                    flames.add(new DownFlame(player.getX(), player.getY() + 32 * (i + 1)));
+                    break;
+                case RIGHT:
+                    flames.add(new RightFlame(player.getX() + 32 * (i + 1), player.getY()));
+                    break;
+                case LEFT:
+                    flames.add(new LeftFlame(player.getX() - 32 * (i + 1), player.getY()));
+                    break;
+            }
+        }
     }
 
 }

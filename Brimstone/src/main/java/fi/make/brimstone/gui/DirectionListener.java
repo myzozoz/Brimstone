@@ -5,13 +5,20 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import fi.make.brimstone.helpers.Key;
 import fi.make.brimstone.helpers.Keys;
+import fi.make.brimstone.helpers.FlameDirection;
+import fi.make.brimstone.game.MapController;
+import fi.make.brimstone.game.mapobjects.Player;
 
 
 public class DirectionListener implements KeyListener {
-
+    
     private HashMap<String, Key> keys;
+    private MapController map;
+    private Player player;
 
-    public DirectionListener() {
+    public DirectionListener(MapController m) {
+        this.map = m;
+        player = m.getPlayer();
         keys = new HashMap();
         for (Keys k : Keys.values()) {
             keys.put(k.getName(), new Key(k.getName(), k.getKey()));
@@ -41,16 +48,16 @@ public class DirectionListener implements KeyListener {
         //System.out.println(e.getKeyCode() + " pressed");
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                //flame up
+                player.setFlameDir(FlameDirection.UP);
                 break;
             case KeyEvent.VK_DOWN:
-                //flame down
+                player.setFlameDir(FlameDirection.DOWN);
                 break;
             case KeyEvent.VK_RIGHT:
-                //flame right
+                player.setFlameDir(FlameDirection.RIGHT);
                 break;
             case KeyEvent.VK_LEFT:
-                //flame.left
+                player.setFlameDir(FlameDirection.LEFT);
                 break;
             case KeyEvent.VK_W:
                 //move up

@@ -1,4 +1,4 @@
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
 import fi.make.brimstone.helpers.Variables;
 

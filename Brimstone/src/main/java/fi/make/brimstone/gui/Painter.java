@@ -8,8 +8,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import fi.make.brimstone.game.MapController;
-import fi.make.brimstone.game.Player;
-import fi.make.brimstone.game.MapObject;
+import fi.make.brimstone.game.mapobjects.Player;
+import fi.make.brimstone.game.mapobjects.MapObject;
 
 public class Painter extends JPanel {
 

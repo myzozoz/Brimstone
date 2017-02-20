@@ -1,10 +1,10 @@
 package fi.make.brimstone.helpers;
 
-import fi.make.brimstone.game.MapObject;
-import fi.make.brimstone.game.Player;
-import fi.make.brimstone.game.NCU;
-import fi.make.brimstone.game.Enemy;
-import fi.make.brimstone.game.Level;
+import fi.make.brimstone.game.mapobjects.MapObject;
+import fi.make.brimstone.game.mapobjects.Player;
+import fi.make.brimstone.game.mapobjects.NCU;
+import fi.make.brimstone.game.mapobjects.Enemy;
+import fi.make.brimstone.game.mapobjects.Level;
 
 public class CollisionManager {
 

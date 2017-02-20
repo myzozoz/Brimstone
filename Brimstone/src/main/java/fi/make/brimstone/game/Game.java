@@ -1,5 +1,6 @@
 package fi.make.brimstone.game;
 
+import fi.make.brimstone.game.mapobjects.Player;
 import fi.make.brimstone.gui.FrameInit;
 import fi.make.brimstone.gui.Painter;
 import fi.make.brimstone.gui.DirectionListener;

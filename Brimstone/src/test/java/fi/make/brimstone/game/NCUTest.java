@@ -5,6 +5,7 @@
  */
 package fi.make.brimstone.game;
 
+import fi.make.brimstone.game.mapobjects.NCU;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
