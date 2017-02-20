@@ -3,6 +3,7 @@ package fi.make.brimstone.helpers;
 import fi.make.brimstone.game.MapObject;
 import fi.make.brimstone.game.Player;
 import fi.make.brimstone.game.NCU;
+import fi.make.brimstone.game.Enemy;
 import fi.make.brimstone.game.Level;
 
 public class CollisionManager {
@@ -52,6 +53,10 @@ public class CollisionManager {
         } else if (player.getY() > lvl0.getLevelDimensions().y - 64) {
             player.setY(lvl0.getLevelDimensions().y - 64);
         }
+    }
+    
+    public static void unStickEnemy(Enemy e){
+        
     }
 
 }

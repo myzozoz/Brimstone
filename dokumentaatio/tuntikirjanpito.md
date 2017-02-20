@@ -9,3 +9,5 @@ Päivä | Tunnit | Kuvaus
 14.02.2017 | 3.0h | Luotu kartta-olio, pelaajan liikkuminen on nyt rajattu sisälle. Kamera seuraa pelaajaa.
 16.02.2017 | 2.0h | Yritetty korjata FPS-bugia.
 19.02.2017 | 4.0h | Vihdoinkin korjattu kyseinen FPS-bugi. Lisätty pelaajalle nopeuskatto, aloitettu työstämään vihollisen logiikkaa.
+20.02.2017 | 3.0h | Viholliset jahtaavat pelaajaa, pelaaja törmää nyt kentälle asetettuihin seiniin
+20.02.2017 | 1.0h | Viholliset törmäävät nyt toisiinsa

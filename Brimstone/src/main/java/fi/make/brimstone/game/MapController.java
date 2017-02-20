@@ -32,9 +32,13 @@ public class MapController {
         lvl0 = new Level(0, 0);
         enemies.add(new Enemy(1000, 100, player));
         enemies.add(new Enemy(50, 1000, player));
+        enemies.add(new Enemy(2000,2000, player));
+        enemies.add(new Enemy(2000,200, player));
         ncus.add(new NCU(1000, 200));
         ncus.add(new NCU(1000, 232));
         ncus.add(new NCU(1000, 264));
+        ncus.add(new NCU(1032, 264));
+        ncus.add(new NCU(1064, 264));
         //TEST
     }
 
@@ -156,16 +160,32 @@ public class MapController {
 
 
 
-    private void updateEnemies(double dTime) {
-        for (Enemy e : enemies) {
-//            Vector dPlayerEnemy = new Vector(plr.getX() - e.getX(), plr.getY() - e.getY());
-//            Vector newDirection = new Vector(dPlayerEnemy.x / dPlayerEnemy.getAbs(), dPlayerEnemy.y / dPlayerEnemy.getAbs());
-//            e.setDirection(newDirection);
-//            e.updatePosition(dTime);
-            e.move();
+    private void updateEnemies(long dTime) {
+        for (int i = 0; i < enemies.size(); i++) {
+            boolean canMove = true;
+            for (NCU n : ncus){
+                if (CollisionManager.collides(enemies.get(i), n)){
+                    printOnScreen = "Enemy hitting wall";
+                    canMove = false;
+                }
+            }
+            
+            //takes care of enemy collision by stopping the one further away from the player
+            for (int a = 0; a < enemies.size(); a++){
+                if (a != i && CollisionManager.collides(enemies.get(a), enemies.get(i))){
+                    if (enemies.get(i).getDistanceToPlayer() > enemies.get(a).getDistanceToPlayer()){
+                        canMove = false;
+                    }
+                }
+            }
+            if (canMove){
+                enemies.get(i).move(dTime);
+            } else {
+                enemies.get(i).revertMove();
+            }
         }
     }
-
+    
     public String getScreenPrint() {
         return this.printOnScreen;
     }
