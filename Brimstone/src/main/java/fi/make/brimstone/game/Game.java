@@ -23,10 +23,11 @@ public class Game {
      *
      */
     public Game() {
-        map = new MapController();
+        map = new MapController(dl);
         f = new FrameInit(map);
-        f.run();
         dl = f.getDirectionListener();
+        map.setDirectionListener(dl);
+        f.run();
         p = f.getPainter();
         plr = map.getPlayer();
         loop();
@@ -35,8 +36,7 @@ public class Game {
     private void loop() {
         long lastFrame = System.currentTimeMillis();
 
-        while (true) {
-            update();
+        while (update()) {
             p.repaint();
             try {
                 Thread.sleep(5l);
@@ -46,14 +46,11 @@ public class Game {
         }
     }
 
-    private void update() {
+    private boolean update() {
         long current = System.currentTimeMillis();
         long dTime = current - lastFrame;
         lastFrame = current;
 
-        map.mapUpdate(dTime, dl);
-
-        plr.updatePosition(dTime);
+        return map.mapUpdate(dTime);
     }
-
 }

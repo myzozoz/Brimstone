@@ -12,3 +12,4 @@ Päivä | Tunnit | Kuvaus
 20.02.2017 | 3.0h | Viholliset jahtaavat pelaajaa, pelaaja törmää nyt kentälle asetettuihin seiniin
 20.02.2017 | 1.0h | Viholliset törmäävät nyt toisiinsa
 20.02.2017 | 2.0h | Pelaaja ampuu nyt liekkejä, joilla hän voi tappaa vastustajia
+21.02.2017 | 2.0h | Siivottu varsinainen logiikka pois MapController -luokasta, sen sijaan käytetään uuden Updater -metodin staattisia. Lisätty pause ja game over

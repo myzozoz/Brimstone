@@ -6,16 +6,9 @@ import fi.make.brimstone.game.mapobjects.MapObject;
 import fi.make.brimstone.game.mapobjects.NCU;
 import fi.make.brimstone.game.mapobjects.Player;
 import fi.make.brimstone.game.mapobjects.flames.Flame;
-import fi.make.brimstone.game.mapobjects.flames.DownFlame;
-import fi.make.brimstone.game.mapobjects.flames.LeftFlame;
-import fi.make.brimstone.game.mapobjects.flames.RightFlame;
-import fi.make.brimstone.game.mapobjects.flames.UpFlame;
 import java.util.List;
 import java.util.ArrayList;
 import fi.make.brimstone.gui.DirectionListener;
-import fi.make.brimstone.helpers.Vector;
-import fi.make.brimstone.helpers.CollisionManager;
-import fi.make.brimstone.helpers.FlameDirection;
 
 //Container class for all of the map objects
 /**
@@ -25,20 +18,24 @@ import fi.make.brimstone.helpers.FlameDirection;
  */
 public class MapController {
 
+    private boolean paused;
     private Player player;
     private Level lvl0;
     private List<Enemy> enemies;
     private List<NCU> ncus;
     private List<Flame> flames;
     private String printOnScreen;
+    private DirectionListener dl;
 
     /**
      *
      */
-    public MapController() {
+    public MapController(DirectionListener dl) {
+        //this.dl = dl;
         flames = new ArrayList();
         enemies = new ArrayList();
         ncus = new ArrayList();
+        paused = true;
         //Get the initial locations of all of the MapObjects that already exist
         //TEST
         player = new Player(50, 50);
@@ -60,7 +57,7 @@ public class MapController {
      * @return Returns all MapObjects possessed by the MapController as a List.
      */
     public List<MapObject> getAllObjects() {
-        playerFlames();
+        Updater.playerFlames(player, flames);
         List<MapObject> l = new ArrayList();
         l.add(lvl0);
         l.add(player);
@@ -68,6 +65,18 @@ public class MapController {
         l.addAll(ncus);
         l.addAll(flames);
         return l;
+    }
+
+    public void setDirectionListener(DirectionListener dl) {
+        this.dl = dl;
+    }
+
+    public void togglePause() {
+        if (paused) {
+            paused = false;
+        } else {
+            paused = true;
+        }
     }
 
     /**
@@ -111,123 +120,10 @@ public class MapController {
      * @param dTime Time since last update.
      * @param dl Reference to the KeyListener class.
      */
-    public void mapUpdate(long dTime, DirectionListener dl) {
-        updatePlayer(dTime, dl);
-        checkPlayerCollisions();
-        updateEnemies(dTime);
-
+    public boolean mapUpdate(long dTime) {
+        if (!paused) {
+            return Updater.update(dTime, dl, enemies, player, lvl0, flames, ncus);
+        }
+        return true;
     }
-
-    private void updatePlayer(long dTime, DirectionListener dl) {
-        if (dl.isKeyDown("W") || dl.isKeyDown("S")) {
-            if (dl.isKeyDown("W")) {
-                player.accelerate(0d, -1d, dTime);
-            }
-            if (dl.isKeyDown("S")) {
-                player.accelerate(0d, 1d, dTime);
-            }
-        } else {
-            player.decelerateVertical(dTime);
-        }
-
-        if (dl.isKeyDown("A") || dl.isKeyDown("D")) {
-            if (dl.isKeyDown("A")) {
-                player.accelerate(-1d, 0d, dTime);
-            }
-            if (dl.isKeyDown("D")) {
-                player.accelerate(1d, 0d, dTime);
-            }
-        } else {
-            player.decelerateHorizontal(dTime);
-        }
-    }
-
-    private void checkPlayerCollisions() {
-        double speedX = player.getSpeed().x;
-        double speedY = player.getSpeed().y;
-
-        //OUTER WALLS
-        if (player.getX() < 32 || player.getX() > lvl0.getLevelDimensions().x - 64) {
-            player.setSpeed(new Vector(-0.5 * speedX, speedY));
-        }
-        if (player.getY() < 32 || player.getY() > lvl0.getLevelDimensions().y - 64) {
-            player.setSpeed(new Vector(speedX, -0.5 * speedY));
-        }
-
-        //ENEMIES
-        for (Enemy e : enemies) {
-            if (CollisionManager.collides(player, e)) {
-//                System.out.println("GAME OVER");
-                //TODO: game over
-            }
-        }
-
-        //NCUs
-        for (NCU n : ncus) {
-            if (CollisionManager.collides(player, n)) {
-                this.printOnScreen = "hitting wall\n";
-                CollisionManager.redirectPlayerFromWall(player, n);
-            }
-        }
-
-        CollisionManager.unStickPlayer(player, lvl0);
-    }
-
-    private void updateEnemies(long dTime) {
-        for (int i = 0; i < enemies.size(); i++) {
-            for (Flame f : flames){
-                if (CollisionManager.collides(enemies.get(i), f)){
-                    enemies.remove(i);
-                    return;
-                }
-            }
-            
-            boolean canMove = true;
-            for (NCU n : ncus) {
-                if (CollisionManager.collides(enemies.get(i), n)) {
-                    printOnScreen = "Enemy hitting wall";
-                    canMove = false;
-                }
-            }
-
-            //takes care of enemy collision by stopping the one further away from the player
-            for (int a = 0; a < enemies.size(); a++) {
-                if (a != i && CollisionManager.collides(enemies.get(a), enemies.get(i))) {
-                    if (enemies.get(i).getDistanceToPlayer() > enemies.get(a).getDistanceToPlayer()) {
-                        canMove = false;
-                    }
-                }
-            }
-            if (canMove) {
-                enemies.get(i).move(dTime);
-            } else {
-                enemies.get(i).revertMove();
-            }
-        }
-    }
-
-    public String getScreenPrint() {
-        return this.printOnScreen;
-    }
-
-    private void playerFlames() {
-        flames.clear();
-        for (int i = 0; i < player.getFlameLength(); i++) {
-            switch (player.getFlameDir()) {
-                case UP:
-                    flames.add(new UpFlame(player.getX(), player.getY() - 32 * (i + 1)));
-                    break;
-                case DOWN:
-                    flames.add(new DownFlame(player.getX(), player.getY() + 32 * (i + 1)));
-                    break;
-                case RIGHT:
-                    flames.add(new RightFlame(player.getX() + 32 * (i + 1), player.getY()));
-                    break;
-                case LEFT:
-                    flames.add(new LeftFlame(player.getX() - 32 * (i + 1), player.getY()));
-                    break;
-            }
-        }
-    }
-
 }

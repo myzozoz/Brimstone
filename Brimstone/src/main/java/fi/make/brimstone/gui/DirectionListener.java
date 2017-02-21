@@ -47,6 +47,9 @@ public class DirectionListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         //System.out.println(e.getKeyCode() + " pressed");
         switch (e.getKeyCode()) {
+            case 27:
+                map.togglePause();
+                break;
             case KeyEvent.VK_UP:
                 player.setFlameDir(FlameDirection.UP);
                 break;

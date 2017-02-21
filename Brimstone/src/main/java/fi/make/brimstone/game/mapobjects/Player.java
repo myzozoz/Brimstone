@@ -143,7 +143,6 @@ public class Player extends MapObject {
     
     public void setFlameLength(){
         flameLength = (int)(3.0 * getSpeedAbs());
-        System.out.println("flameLength: " + flameLength);
     }
     
     public int getFlameLength(){
