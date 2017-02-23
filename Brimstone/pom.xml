@@ -37,10 +37,12 @@
                 <configuration>
                     <targetClasses>
                         <param>fi.make.brimstone.game.*</param>
+                        <param>fi.make.brimstone.game.mapobjects.flames.*</param>
                         <param>fi.make.brimstone.helpers.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>fi.make.brimstone.game.*</param>
+                        <param>fi.make.brimstone.game.mapobjects.flames*</param>
                         <param>fi.make.brimstone.helpers.*</param>
                     </targetTests>
                 </configuration>

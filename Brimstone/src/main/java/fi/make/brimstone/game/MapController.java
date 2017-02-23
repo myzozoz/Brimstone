@@ -30,7 +30,7 @@ public class MapController {
     /**
      *
      */
-    public MapController(DirectionListener dl) {
+    public MapController() {
         //this.dl = dl;
         flames = new ArrayList();
         enemies = new ArrayList();
@@ -79,6 +79,10 @@ public class MapController {
         }
     }
 
+    public boolean isPaused(){
+        return paused;
+    }
+    
     /**
      *
      * @param x

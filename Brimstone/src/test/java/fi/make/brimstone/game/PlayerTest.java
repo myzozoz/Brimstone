@@ -91,37 +91,45 @@ public class PlayerTest {
         p.accelerate(0, 10, 1);
         assertEquals(0.01, p.getSpeed().y, 0.001);
     }
-
+    
     @Test
     public void decelerationReducesMovementSpeedRight() {
         p.setSpeed(new Vector(0,0));
-        p.accelerate(1, 0, 5000);
+        p.accelerate(1, 0, 1000);
         p.decelerateHorizontal(2000);
-        assertEquals(4.8, p.getSpeed().x, 0.001);
+        assertEquals(0.8, p.getSpeed().x, 0.001);
     }
 
+    
     @Test
     public void decelerationReducesMovementSpeedLeft() {
         p.setSpeed(new Vector(0,0));
-        p.accelerate(-1, 0, 5000);
+        p.accelerate(-1, 0, 1000);
         p.decelerateHorizontal(2000);
-        assertEquals(-4.8, p.getSpeed().x, 0.001);
+        assertEquals(-0.8, p.getSpeed().x, 0.001);
     }
 
     @Test
     public void decelerationReducesMovementSpeedUp() {
         p.setSpeed(new Vector(0,0));
-        p.accelerate(0, -1, 5000);
+        p.accelerate(0, -1, 1000);
         p.decelerateVertical(2000);
-        assertEquals(-4.8, p.getSpeed().y, 0.001);
+        assertEquals(-0.8, p.getSpeed().y, 0.001);
     }
 
     @Test
     public void decelerationReducesMovementSpeeDown() {
         p.setSpeed(new Vector(0,0));
-        p.accelerate(0, 1, 5000);
+        p.accelerate(0, 1, 1000);
         p.decelerateVertical(2000);
-        assertEquals(4.8, p.getSpeed().y, 0.001);
+        assertEquals(0.8, p.getSpeed().y, 0.001);
     }
 
+    @Test
+    public void stopsIfTooSlow() {
+        p.setSpeed(new Vector(0,0));
+        p.accelerate(1, 0, 10);
+        p.decelerateHorizontal(100);
+        assertEquals(0.0, p.getSpeed().x, 0.001);
+    }
 }

@@ -26,6 +26,7 @@ public class Painter extends JPanel {
         this.d = d;
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 

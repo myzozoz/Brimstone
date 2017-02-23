@@ -1,6 +1,6 @@
 package fi.make.brimstone.gui;
 
-import java.awt.Canvas;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Container;
@@ -8,16 +8,16 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import fi.make.brimstone.game.MapController;
-import fi.make.brimstone.game.mapobjects.Player;
 
-public class FrameInit extends Canvas implements Runnable {
+public class FrameInit implements Runnable {
 
     private JFrame frame;
     private MapController m;
     private DirectionListener dl;
     private Painter p;
     private WindowResizeListener wrl;
-
+    private StatusBox sb;
+    
     public FrameInit(MapController m) {
         this.m = m;
         this.dl = new DirectionListener(m);
@@ -43,7 +43,9 @@ public class FrameInit extends Canvas implements Runnable {
         frame.addKeyListener(dl);
         frame.addComponentListener(wrl);
         p = new Painter(m, frame.getContentPane().getSize());
+        this.sb = new StatusBox("start",m);
         container.add(p);
+        container.add(sb,BorderLayout.SOUTH);
     }
 
     //Creates the initial dimensions for the screen, when it starts windowed
@@ -60,12 +62,12 @@ public class FrameInit extends Canvas implements Runnable {
     public Painter getPainter() {
         return p;
     }
+    
+    public StatusBox getStatusBox() {
+        return sb;
+    }
 
     public void adjustToResize() {
         p.updateWindowSize(frame.getContentPane().getSize());
-    }
-    
-    public void changePlayerFlameDirection(int i){
-        
     }
 }

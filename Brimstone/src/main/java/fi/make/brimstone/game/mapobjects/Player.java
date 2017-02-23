@@ -10,8 +10,6 @@ import fi.make.brimstone.helpers.FlameDirection;
 public class Player extends MapObject {
 
     private Vector speed;
-    private double accelConst;
-    private double decelConst;
     private int flameLength;
     private FlameDirection flameDir;
 
@@ -22,8 +20,6 @@ public class Player extends MapObject {
      */
     public Player(double x, double y) {
         super(x, y, Variables.PLAYER_IMAGE);
-        accelConst = Variables.ACCELERATION_MULTIPLIER;
-        decelConst = Variables.DECELERATION_MULTIPLIER;
         speed = Variables.PLAYER_SPEED;
         flameDir = FlameDirection.UP;
     }
@@ -46,8 +42,8 @@ public class Player extends MapObject {
      */
     public void accelerate(double x, double y, long dTime) {
 //        System.out.println("ACCELERATING");
-        speed.x += x * accelConst * dTime;
-        speed.y += y * accelConst * dTime;
+        speed.x += x * Variables.ACCELERATION_MULTIPLIER * dTime;
+        speed.y += y * Variables.ACCELERATION_MULTIPLIER * dTime;
         if (getSpeedAbs() > Variables.PLAYER_MAX_SPEED){
             setSpeed(Variables.PLAYER_MAX_SPEED);
         }
@@ -61,16 +57,16 @@ public class Player extends MapObject {
     public void decelerateVertical(long dTime) {
         //System.out.println("DECEL_VERT");
         if (speed.y > 0) {
-            if (speed.y - decelConst * dTime < 0) {
+            if (speed.y - Variables.DECELERATION_MULTIPLIER * dTime < 0) {
                 speed.y = 0;
             } else {
-                speed.y -= decelConst * dTime;
+                speed.y -= Variables.DECELERATION_MULTIPLIER * dTime;
             }
         } else if (speed.y < 0) {
-            if (speed.y + decelConst * dTime > 0) {
+            if (speed.y + Variables.DECELERATION_MULTIPLIER * dTime > 0) {
                 speed.y = 0;
             } else {
-                speed.y += decelConst * dTime;
+                speed.y += Variables.DECELERATION_MULTIPLIER * dTime;
             }
         }
     }
@@ -82,16 +78,16 @@ public class Player extends MapObject {
     public void decelerateHorizontal(long dTime) {
         //System.out.println("DECEL_HORI");
         if (speed.x > 0) {
-            if (speed.x - decelConst * dTime < 0) {
+            if (speed.x - Variables.DECELERATION_MULTIPLIER * dTime < 0) {
                 speed.x = 0;
             } else {
-                speed.x -= decelConst * dTime;
+                speed.x -= Variables.DECELERATION_MULTIPLIER * dTime;
             }
         } else if (speed.x < 0) {
-            if (speed.x + decelConst * dTime > 0) {
+            if (speed.x + Variables.DECELERATION_MULTIPLIER * dTime > 0) {
                 speed.x = 0;
             } else {
-                speed.x += decelConst * dTime;
+                speed.x += Variables.DECELERATION_MULTIPLIER * dTime;
             }
         }
     }
