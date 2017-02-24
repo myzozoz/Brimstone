@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>CollisionManager xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../apidocs/fi/make/brimstone/helpers/CollisionManager.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fi.make.brimstone.helpers;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.MapObject;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.Player;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.NCU;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.Level;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * A helper class for calculating collisions and effects of collisions, in order</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * to make code in the MapController and Updater classes less convoluted.</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * @author make</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../fi/make/brimstone/helpers/CollisionManager.html">CollisionManager</a> {
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment">     * Simply calculates whether two MapObjects are colliding. NOTE: Assumes</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * that all MapObjects are 32x32 units large objects.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * @param a Any object that extends the abstract MapObject class.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * @param b Any object that extends the abstract MapObject class.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * @return True if the two pieces collide.</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> collides(<a href="../../../../fi/make/brimstone/game/mapobjects/MapObject.html">MapObject</a> a, <a href="../../../../fi/make/brimstone/game/mapobjects/MapObject.html">MapObject</a> b) {
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          <strong class="jxr_keyword">if</strong> (b.getX() - a.getX() &lt; 32
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>                  &amp;&amp; b.getX() - a.getX() &gt; -32
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>                  &amp;&amp; b.getY() - a.getY() &lt; 32
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>                  &amp;&amp; b.getY() - a.getY() &gt; -32) {
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          }
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     * Calculates what direction the player takes after hitting the wall. This</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     * method does not check for collision, so it assumes collision detection</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * has been made before hand. Direction calculations have been made on the</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     * assumption, that all of the NCU's are 32x32 squares. It simply compares</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">     * the dX and dY values of the player and wall and, due to collision being</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">     * assumed, the one with the larger absolute value is bound to be the one</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * causing the collision. Then the player's speed in the direction in</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     * question gets reversed and halved. (Halved in order to stop endless</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * acceleration in case of close adjacent walls).</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * This method also "unsticks" the player from the wall by pushing him back</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * in the direction he came from.</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     * @param p Player object.</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     * @param n NCU (Wall) object.</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> redirectPlayerFromWall(<a href="../../../../fi/make/brimstone/game/mapobjects/Player.html">Player</a> p, <a href="../../../../fi/make/brimstone/game/mapobjects/NCU.html">NCU</a> n) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a> directionFromWall = <strong class="jxr_keyword">new</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a>(n.getX() - p.getX(), n.getY() - p.getY());
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <strong class="jxr_keyword">if</strong> (Math.abs(directionFromWall.x) == Math.abs(directionFromWall.y)) {    <em class="jxr_comment">//I wanted to handle the off case that the player approaches directly from a corner</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              p.setSpeed(<strong class="jxr_keyword">new</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a>(p.getSpeed().x * -0.5, p.getSpeed().y * -0.5));
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              <strong class="jxr_keyword">if</strong> (Math.abs(directionFromWall.x) &gt; Math.abs(directionFromWall.y)) {
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                  p.setSpeed(<strong class="jxr_keyword">new</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a>(p.getSpeed().x * -.5, p.getSpeed().y));
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                  <strong class="jxr_keyword">if</strong> (directionFromWall.x &lt; 0) {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      p.setX(n.getX() + 32);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                      p.setX(n.getX() - 32);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                  }
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>              } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                  p.setSpeed(<strong class="jxr_keyword">new</strong> <a href="../../../../fi/make/brimstone/helpers/Vector.html">Vector</a>(p.getSpeed().x, p.getSpeed().y * -.5));
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                  <strong class="jxr_keyword">if</strong> (directionFromWall.y &lt; 0) {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                      p.setY(n.getY() + 32);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                  } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>                      p.setY(n.getY() - 32);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                  }
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              }
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          }
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      }
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment">     * Makes sure the player doesn't stick to the level edges due to overlaps.</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     * @param player Player object.</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * @param lvl0 Level object.</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> unStickPlayer(<a href="../../../../fi/make/brimstone/game/mapobjects/Player.html">Player</a> player, <a href="../../../../fi/make/brimstone/game/mapobjects/Level.html">Level</a> lvl0) {
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <strong class="jxr_keyword">if</strong> (player.getX() &lt; 32) {
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>              player.setX(32);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (player.getX() &gt; lvl0.getLevelDimensions().x - 64) {
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              player.setX(lvl0.getLevelDimensions().x - 64);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          }
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">if</strong> (player.getY() &lt; 32) {
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              player.setY(32);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (player.getY() &gt; lvl0.getLevelDimensions().y - 64) {
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              player.setY(lvl0.getLevelDimensions().y - 64);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          }
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      }
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>

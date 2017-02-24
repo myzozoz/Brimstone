@@ -17,24 +17,25 @@ import static org.junit.Assert.*;
  * @author make
  */
 public class GameTest {
+
     Game g;
-    
+
     public GameTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         g = new Game();
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -44,5 +45,4 @@ public class GameTest {
     //
     // @Test
     // public void hello() {}
-
 }

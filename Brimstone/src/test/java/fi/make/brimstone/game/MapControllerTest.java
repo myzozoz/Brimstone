@@ -18,8 +18,9 @@ import static org.junit.Assert.*;
  * @author make
  */
 public class MapControllerTest {
+
     MapController m;
-    
+
     public MapControllerTest() {
     }
 
@@ -63,23 +64,23 @@ public class MapControllerTest {
     public void isPausedInTheBeginning() {
         assertTrue(m.isPaused());
     }
-    
+
     @Test
     public void unPauses() {
         m.togglePause();
         assertFalse(m.isPaused());
     }
-    
+
     @Test
     public void rePauses() {
         m.togglePause();
         m.togglePause();
         assertTrue(m.isPaused());
     }
-    
+
     @Test
     public void mapUpdateReturnsTrueIfPaused() {
         assertTrue(m.mapUpdate(0));
     }
-    
+
 }

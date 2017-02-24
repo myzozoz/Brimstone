@@ -63,13 +63,13 @@ public class LevelTest {
 
     @Test
     public void returnsCorrectXDimension() {
-        Level l = new Level(0,0);
+        Level l = new Level(0, 0);
         assertEquals(3000, l.getLevelDimensions().x, 0.001);
     }
-    
-        @Test
+
+    @Test
     public void returnsCorrectYDimension() {
-        Level l = new Level(0,0);
+        Level l = new Level(0, 0);
         assertEquals(3000, l.getLevelDimensions().y, 0.001);
     }
 }

@@ -9,6 +9,7 @@ import fi.make.brimstone.gui.DirectionListener;
 
 /**
  * Umbrella class that works as the connecting layer between gui and game logic.
+ *
  * @author make
  */
 public class Game {
@@ -39,7 +40,7 @@ public class Game {
 
     private void loop() {
         long lastFrame = System.currentTimeMillis();
-        
+
         while (update()) {
             sb.repaint();
             p.repaint();

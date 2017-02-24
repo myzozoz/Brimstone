@@ -24,7 +24,7 @@ public class Updater {
      * update(...) is a broader method, that edits the status of the items that
      * are simply contained inside the MapController class. Due to being static,
      * receives all of the editable objects as parameters.
-     * 
+     *
      * @param dTime Elapsed time since last update.
      * @param dl DirecionListener.
      * @param enemies List of Enemies
@@ -32,13 +32,13 @@ public class Updater {
      * @param lvl Current level.
      * @param flames List of flame-objects
      * @param ncus List of walls.
-     * @return Returns a boolean that the MapController passes on to Game. Signals
-     * Game to stop looping if false.
+     * @return Returns a boolean that the MapController passes on to Game.
+     * Signals Game to stop looping if false.
      */
     public static boolean update(long dTime, DirectionListener dl, List<Enemy> enemies, Player player, Level lvl, List<Flame> flames, List<NCU> ncus) {
         boolean gameContinues = true;
         Updater.updatePlayer(dTime, dl, player);
-        gameContinues = Updater.checkPlayerCollisions(enemies, player ,lvl, ncus);
+        gameContinues = Updater.checkPlayerCollisions(enemies, player, lvl, ncus);
         Updater.updateEnemies(dTime, enemies, flames, ncus);
         player.updatePosition(dTime);
         return gameContinues;
@@ -71,9 +71,9 @@ public class Updater {
     private static boolean checkPlayerCollisions(List<Enemy> enemies, Player player, Level lvl, List<NCU> ncus) {
         double speedX = player.getSpeed().x;
         double speedY = player.getSpeed().y;
-        
+
         boolean gameContinues = true;
-        
+
         //OUTER WALLS
         if (player.getX() < 32 || player.getX() > lvl.getLevelDimensions().x - 64) {
             player.setSpeed(new Vector(-0.5 * speedX, speedY));
@@ -99,7 +99,7 @@ public class Updater {
         }
 
         CollisionManager.unStickPlayer(player, lvl);
-        
+
         return gameContinues;
     }
 
@@ -136,8 +136,9 @@ public class Updater {
     }
 
     /**
-     * Calculates the positions and creates new flame -objects of correct 
+     * Calculates the positions and creates new flame -objects of correct
      * orientation. Always clears before recalculating.
+     *
      * @param player The player.
      * @param flames List of the flames.
      */

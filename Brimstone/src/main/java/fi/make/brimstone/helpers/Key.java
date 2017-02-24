@@ -1,8 +1,9 @@
 package fi.make.brimstone.helpers;
 
 /**
- * Simple data container class, so that the game can always query, whether a button
- * has been pressed down, but not released.
+ * Simple data container class, so that the game can always query, whether a
+ * button has been pressed down, but not released.
+ *
  * @author make
  */
 public class Key {

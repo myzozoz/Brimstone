@@ -145,10 +145,10 @@ public class PlayerTest {
         p.decelerateHorizontal(100);
         assertEquals(0.0, p.getSpeed().x, 0.001);
     }
-    
+
     @Test
     public void roofsPlayerSpeed() {
-        p.accelerate(1,-1, 1440);
-        assertEquals(2.0,p.getSpeedAbs(),0.01);
+        p.accelerate(1, -1, 1440);
+        assertEquals(2.0, p.getSpeedAbs(), 0.01);
     }
 }

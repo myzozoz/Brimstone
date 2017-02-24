@@ -200,55 +200,55 @@ public class CollisionManagerTest {
         assertEquals(100, p.getX(), 0.001);
         assertEquals(68, p.getY(), 0.001);
     }
-    
+
     @Test
     public void unsticksPlayerFromLevelTopEdge() {
         Player p = new Player(100, 31);
-        Level lvl = new Level(0,0);
+        Level lvl = new Level(0, 0);
         CollisionManager.unStickPlayer(p, lvl);
-        
-        assertEquals(100, p.getX(),0.001);
-        assertEquals(32, p.getY(),0.001);
+
+        assertEquals(100, p.getX(), 0.001);
+        assertEquals(32, p.getY(), 0.001);
     }
-    
+
     @Test
     public void unsticksPlayerFromLevelBotEdge() {
         Player p = new Player(100, 2937);
-        Level lvl = new Level(0,0);
+        Level lvl = new Level(0, 0);
         CollisionManager.unStickPlayer(p, lvl);
-        
-        assertEquals(100, p.getX(),0.001);
-        assertEquals(2936, p.getY(),0.001);
+
+        assertEquals(100, p.getX(), 0.001);
+        assertEquals(2936, p.getY(), 0.001);
     }
-    
+
     @Test
     public void unsticksPlayerFromLevelLeftEdge() {
         Player p = new Player(31, 100);
-        Level lvl = new Level(0,0);
+        Level lvl = new Level(0, 0);
         CollisionManager.unStickPlayer(p, lvl);
-        
-        assertEquals(32, p.getX(),0.001);
-        assertEquals(100, p.getY(),0.001);
+
+        assertEquals(32, p.getX(), 0.001);
+        assertEquals(100, p.getY(), 0.001);
     }
-    
+
     @Test
     public void unsticksPlayerFromLevelRightEdge() {
         Player p = new Player(2937, 100);
-        Level lvl = new Level(0,0);
+        Level lvl = new Level(0, 0);
         CollisionManager.unStickPlayer(p, lvl);
-        
-        assertEquals(2936, p.getX(),0.001);
-        assertEquals(100, p.getY(),0.001);
+
+        assertEquals(2936, p.getX(), 0.001);
+        assertEquals(100, p.getY(), 0.001);
     }
-    
+
     @Test
     public void unstickDoesNotMovePlayerIfInsideBounds() {
         Player p = new Player(32, 32);
-        Level lvl = new Level(0,0);
+        Level lvl = new Level(0, 0);
         CollisionManager.unStickPlayer(p, lvl);
-        
-        assertEquals(32, p.getX(),0.001);
-        assertEquals(32, p.getY(),0.001);
+
+        assertEquals(32, p.getX(), 0.001);
+        assertEquals(32, p.getY(), 0.001);
     }
 
 }

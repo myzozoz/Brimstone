@@ -7,8 +7,9 @@ import fi.make.brimstone.helpers.Vector;
 
 /**
  * The Enemy class inherits MapObject, and hence has a drawable image and
- * locations on the x and y axes. The enemy also always contains a player
- * object that it chases.
+ * locations on the x and y axes. The enemy also always contains a player object
+ * that it chases.
+ *
  * @author make
  */
 public class Enemy extends MapObject {
@@ -30,11 +31,12 @@ public class Enemy extends MapObject {
     }
 
     /**
-     * Moves the enemy towards the player. Also stores previous coordinates
-     * in case of collision with a wall-object.
-     * @param dTime The movement calculations are performance bound (not 
-     * real-time-adjusted) due to buggy behavior. This parameter has not been removed
-     * due to being benign and being there for future implementation.
+     * Moves the enemy towards the player. Also stores previous coordinates in
+     * case of collision with a wall-object.
+     *
+     * @param dTime The movement calculations are performance bound (not
+     * real-time-adjusted) due to buggy behavior. This parameter has not been
+     * removed due to being benign and being there for future implementation.
      */
     public void move(long dTime) {
         oldLocation[0] = x;
@@ -54,7 +56,7 @@ public class Enemy extends MapObject {
     }
 
     /**
-     * 
+     *
      * @return The absolute distance to the player.
      */
     public double getDistanceToPlayer() {
@@ -62,4 +64,3 @@ public class Enemy extends MapObject {
         return toPlayer.getAbs();
     }
 }
-

@@ -28,7 +28,7 @@ public class MapController {
     private DirectionListener dl;
 
     /**
-     * Initializes the playing field. 
+     * Initializes the playing field.
      */
     public MapController() {
         //this.dl = dl;
@@ -68,10 +68,11 @@ public class MapController {
     }
 
     /**
-     * It is important that this method is called before trying to use the 
-     * MapController. Can't be set in the constructor, because the 
-     * DirectionListener class requires a MapController class in its 
+     * It is important that this method is called before trying to use the
+     * MapController. Can't be set in the constructor, because the
+     * DirectionListener class requires a MapController class in its
      * constructor.
+     *
      * @param dl The DirectionListener initialized in the Game-class
      */
     public void setDirectionListener(DirectionListener dl) {
@@ -93,10 +94,10 @@ public class MapController {
      *
      * @return Pause status
      */
-    public boolean isPaused(){
+    public boolean isPaused() {
         return paused;
     }
-    
+
     /**
      *
      * @param x

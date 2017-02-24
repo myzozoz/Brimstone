@@ -17,7 +17,7 @@ public class FrameInit implements Runnable {
     private Painter p;
     private WindowResizeListener wrl;
     private StatusBox sb;
-    
+
     public FrameInit(MapController m) {
         this.m = m;
         this.dl = new DirectionListener(m);
@@ -43,9 +43,9 @@ public class FrameInit implements Runnable {
         frame.addKeyListener(dl);
         frame.addComponentListener(wrl);
         p = new Painter(m, frame.getContentPane().getSize());
-        this.sb = new StatusBox("start",m);
+        this.sb = new StatusBox("start", m);
         container.add(p);
-        container.add(sb,BorderLayout.SOUTH);
+        container.add(sb, BorderLayout.SOUTH);
     }
 
     //Creates the initial dimensions for the screen, when it starts windowed
@@ -62,7 +62,7 @@ public class FrameInit implements Runnable {
     public Painter getPainter() {
         return p;
     }
-    
+
     public StatusBox getStatusBox() {
         return sb;
     }

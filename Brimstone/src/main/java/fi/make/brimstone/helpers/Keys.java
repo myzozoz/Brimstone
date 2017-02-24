@@ -3,8 +3,9 @@ package fi.make.brimstone.helpers;
 import java.awt.event.KeyEvent;
 
 /**
- * An enum containing all the possible keys and their Keycodes. Not currently
- * in use.
+ * An enum containing all the possible keys and their Keycodes. Not currently in
+ * use.
+ *
  * @author make
  */
 public enum Keys {
@@ -13,37 +14,30 @@ public enum Keys {
      *
      */
     UP("Up", KeyEvent.VK_UP),
-
     /**
      *
      */
     DOWN("Down", KeyEvent.VK_DOWN),
-
     /**
      *
      */
     LEFT("Left", KeyEvent.VK_LEFT),
-
     /**
      *
      */
     RIGHT("Right", KeyEvent.VK_RIGHT),
-
     /**
      *
      */
     W("W", KeyEvent.VK_W),
-
     /**
      *
      */
     A("A", KeyEvent.VK_A),
-
     /**
      *
      */
     S("S", KeyEvent.VK_S),
-
     /**
      *
      */

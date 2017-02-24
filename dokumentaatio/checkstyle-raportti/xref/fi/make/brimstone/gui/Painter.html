@@ -11,29 +11,45 @@
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> javax.swing.JPanel;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.Map;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.MapObject;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.awt.Image;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.Toolkit;
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../fi/make/brimstone/gui/Painter.html">Painter</a> <strong class="jxr_keyword">extends</strong> JPanel {
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../fi/make/brimstone/game/Map.html">Map</a> m;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.MapController;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.Player;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> fi.make.brimstone.game.mapobjects.MapObject;
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../fi/make/brimstone/gui/Painter.html">Painter</a>(<a href="../../../../fi/make/brimstone/game/Map.html">Map</a> m) {
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>          <strong class="jxr_keyword">super</strong>.setBackground(Color.GREEN);
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>          <strong class="jxr_keyword">this</strong>.m = m;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>      }
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>      @Override
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> paintComponent(Graphics g) {
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>          <strong class="jxr_keyword">super</strong>.paintComponent(g);
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <strong class="jxr_keyword">for</strong> (MapObject mo : m.getAllObjects()) {
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>              g.drawImage(mo.getImage(), (<strong class="jxr_keyword">int</strong>) mo.getX(), (<strong class="jxr_keyword">int</strong>) mo.getY(), <strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>          }
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../fi/make/brimstone/gui/Painter.html">Painter</a> <strong class="jxr_keyword">extends</strong> JPanel {
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">private</strong> Dimension d;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../fi/make/brimstone/game/mapobjects/Player.html">Player</a> plr;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../fi/make/brimstone/game/MapController.html">MapController</a> m;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">private</strong> Image plrImage;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../fi/make/brimstone/gui/Painter.html">Painter</a>(<a href="../../../../fi/make/brimstone/game/MapController.html">MapController</a> m, Dimension d) {
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          <strong class="jxr_keyword">super</strong>.setBackground(Color.GREEN);
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <strong class="jxr_keyword">this</strong>.m = m;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <strong class="jxr_keyword">this</strong>.plr = m.getPlayer();
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          plrImage = plr.getImage();
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">this</strong>.d = d;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>      }
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  }
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      @Override
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paintComponent(Graphics g) {
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">super</strong>.paintComponent(g);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">for</strong> (MapObject mo : m.getAllObjects()) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              g.drawImage(mo.getImage(), (<strong class="jxr_keyword">int</strong>) (mo.getX() - plr.getX())
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>                      + (d.width / 2), (<strong class="jxr_keyword">int</strong>) (mo.getY() - plr.getY() + (d.height / 2)), <strong class="jxr_keyword">this</strong>);
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          }
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          Toolkit.getDefaultToolkit().sync();
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> updateWindowSize(Dimension d) {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">this</strong>.d = d;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

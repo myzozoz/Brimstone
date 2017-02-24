@@ -17,8 +17,9 @@ import static org.junit.Assert.*;
  * @author make
  */
 public class EnemyTest {
+
     Enemy e;
-    
+
     public EnemyTest() {
     }
 
@@ -32,7 +33,7 @@ public class EnemyTest {
 
     @Before
     public void setUp() {
-        e = new Enemy(100, 100, new Player(1100,1100));
+        e = new Enemy(100, 100, new Player(1100, 1100));
     }
 
     @After
@@ -58,13 +59,13 @@ public class EnemyTest {
     public void getImageDoesNotReturnNull() {
         assertTrue(e.getImage() != null);
     }
-    
+
     @Test
     public void movesCorrectAmount1() {
         e.move(0);
         assertEquals(101.06, e.getX(), 0.01);
     }
-    
+
     public void movesCorrectAmount2() {
         e.move(0);
         e.move(0);
@@ -72,18 +73,17 @@ public class EnemyTest {
         e.move(0);
         assertEquals(104.24264, e.getX(), 0.001);
     }
-    
+
     @Test
     public void revertsCorrectly() {
         e.move(0);
         e.revertMove();
         assertEquals(100.0, e.getX(), 0.001);
     }
-    
+
     @Test
-    public void returnsCorrectDistanceToPlayer(){
+    public void returnsCorrectDistanceToPlayer() {
         assertEquals(1414.21356, e.getDistanceToPlayer(), 0.001);
     }
-    
-    
+
 }

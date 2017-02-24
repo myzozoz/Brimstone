@@ -9,9 +9,8 @@ import fi.make.brimstone.helpers.FlameDirection;
 import fi.make.brimstone.game.MapController;
 import fi.make.brimstone.game.mapobjects.Player;
 
-
 public class DirectionListener implements KeyListener {
-    
+
     private HashMap<String, Key> keys;
     private MapController map;
     private Player player;
@@ -79,14 +78,14 @@ public class DirectionListener implements KeyListener {
                 //move right
                 break;
             default:
-                
+
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         //System.out.println(e.getKeyCode() + " released");
-        
+
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
                 //move up

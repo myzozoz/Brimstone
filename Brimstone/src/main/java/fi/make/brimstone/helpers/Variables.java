@@ -1,7 +1,9 @@
 package fi.make.brimstone.helpers;
 
 /**
- * Contains the values that are runtime constants. Confusingly named "Variables".
+ * Contains the values that are runtime constants. Confusingly named
+ * "Variables".
+ *
  * @author make
  */
 public class Variables {
@@ -20,7 +22,7 @@ public class Variables {
     public static final double PLAYER_MAX_SPEED = 2.0;
     public static final double ACCELERATION_MULTIPLIER = 0.001;
     public static final double DECELERATION_MULTIPLIER = 0.0001;
-    
+
     public static final double ENEMY_DEFAULT_SPEED = 1.5;
-    
+
 }

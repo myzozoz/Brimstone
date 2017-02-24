@@ -6,3 +6,11 @@
 
 
 ![Luokkakaavio](BrimstoneClassDiagram.png "Luokkakaavio")
+
+![Sekvenssikaavio](Sekvenssikaavio.png "Sekvenssikaavio 1)
+
+![Sekvenssikaavio](Sekvenssikaavio2.png "Sekvenssikaavio 2)
+
+**Rakennekuvaus**: Kaikkea pyörittää Game -luokka. Game:lla on luokkamuuttujina tallennettu sekä logiikkapuolen MapController, että käyttöliittymäpuolen FrameInit, Painter ja DirectionListener. Game omistaa myös loopin, joka jokaisella suorituskerralla kutsuu MapControllerin mapUpdatea, sekä sitten kälin päivitystä. MapController taas sisältää pelaajan, viholliset, kartalle sijoitettavat seinät, sekä itse tason. Näitä olioita muokkaavat metodit kuitenkin ovat erillisessä Updater -luokassa, joka sisältää ainoastaa staattisia metodeja.
+
+Updaterin kaverina on sitten helper-paketissa kohtuullisen geneerinen CollisionManager, joka pystyy laskemaan minkä tahansa kahden MapObject -rajapinnan täyttävän luokan yhteentörmäyksiä. Sen lisäksi se pystyy laskemaan esim. pelaajan kimmotuksia seinistä. Player laskee kuitenkin lähtökohtaisesti omat liikkeensä, kuten kiihdytyksen. 

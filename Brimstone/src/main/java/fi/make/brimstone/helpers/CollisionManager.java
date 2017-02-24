@@ -8,14 +8,15 @@ import fi.make.brimstone.game.mapobjects.Level;
 /**
  * A helper class for calculating collisions and effects of collisions, in order
  * to make code in the MapController and Updater classes less convoluted.
+ *
  * @author make
  */
 public class CollisionManager {
 
     /**
-     * Simply calculates whether two MapObjects are colliding. NOTE: Assumes 
+     * Simply calculates whether two MapObjects are colliding. NOTE: Assumes
      * that all MapObjects are 32x32 units large objects.
-     * 
+     *
      * @param a Any object that extends the abstract MapObject class.
      * @param b Any object that extends the abstract MapObject class.
      * @return True if the two pieces collide.
@@ -32,19 +33,18 @@ public class CollisionManager {
 
     /**
      * Calculates what direction the player takes after hitting the wall. This
-     * method does not check for collision, so it assumes collision detection 
-     * has been made before hand. 
-     * Direction calculations have been made on the assumption, that all of the
-     * NCU's are 32x32 squares. It simply compares the dX and dY values of the 
-     * player and wall and, due to collision being assumed, the one with the 
-     * larger absolute value is bound to be the one causing the collision.
-     * Then the player's speed in the direction in question gets reversed and
-     * halved. (Halved in order to stop endless acceleration in case of close
-     * adjacent walls).
-     * 
+     * method does not check for collision, so it assumes collision detection
+     * has been made before hand. Direction calculations have been made on the
+     * assumption, that all of the NCU's are 32x32 squares. It simply compares
+     * the dX and dY values of the player and wall and, due to collision being
+     * assumed, the one with the larger absolute value is bound to be the one
+     * causing the collision. Then the player's speed in the direction in
+     * question gets reversed and halved. (Halved in order to stop endless
+     * acceleration in case of close adjacent walls).
+     *
      * This method also "unsticks" the player from the wall by pushing him back
      * in the direction he came from.
-     * 
+     *
      * @param p Player object.
      * @param n NCU (Wall) object.
      */
@@ -74,6 +74,7 @@ public class CollisionManager {
 
     /**
      * Makes sure the player doesn't stick to the level edges due to overlaps.
+     *
      * @param player Player object.
      * @param lvl0 Level object.
      */
