@@ -7,7 +7,7 @@
 
 ![Luokkakaavio](BrimstoneClassDiagram.png "Luokkakaavio")
 
-![Sekenssikaavio](Sekvenssikaavio.png "Sekvenssikaavio 1")
+![Sekvenssikaavio](Sekenssikaavio.png "Sekvenssikaavio 1")
 
 ![Sekvenssikaavio](Sekvenssikaavio2.png "Sekvenssikaavio 2")
 
