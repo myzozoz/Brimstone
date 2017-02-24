@@ -24,7 +24,6 @@ public class MapController {
     private List<Enemy> enemies;
     private List<NCU> ncus;
     private List<Flame> flames;
-    private String printOnScreen;
     private DirectionListener dl;
 
     /**

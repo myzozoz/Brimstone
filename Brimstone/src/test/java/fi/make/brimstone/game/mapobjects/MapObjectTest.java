@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
 //import fi.make.brimstone.game.MapObject;
 //import fi.make.brimstone.game.Player;

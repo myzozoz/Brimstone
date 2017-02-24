@@ -54,9 +54,4 @@ public class CollisionManager {
             player.setY(lvl0.getLevelDimensions().y - 64);
         }
     }
-    
-    public static void unStickEnemy(Enemy e){
-        
-    }
-
 }

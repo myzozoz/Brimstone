@@ -116,9 +116,9 @@ public class Player extends MapObject {
         speed = newSpeed;
     }
     
-    public void setSpeed(double speed){
-        this.speed.x = getDirection().x * speed;
-        this.speed.y = getDirection().y * speed;
+    public void setSpeed(double spd){
+        this.speed.x = getDirection().x * spd;
+        this.speed.y = getDirection().y * spd;
     }
 
     /**

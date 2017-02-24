@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
-import fi.make.brimstone.game.mapobjects.NCU;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,10 @@ import static org.junit.Assert.*;
  *
  * @author make
  */
-public class NCUTest {
-
-    public NCUTest() {
+public class EnemyTest {
+    Enemy e;
+    
+    public EnemyTest() {
     }
 
     @BeforeClass
@@ -32,6 +32,7 @@ public class NCUTest {
 
     @Before
     public void setUp() {
+        e = new Enemy(100, 100, new Player(1100,1100));
     }
 
     @After
@@ -45,19 +46,44 @@ public class NCUTest {
     // public void hello() {}
     @Test
     public void initXCorrect() {
-        NCU n = new NCU(100, 100);
-        assertEquals(100, n.getX(), 0.001);
+        assertEquals(100, e.getX(), 0.001);
     }
 
     @Test
     public void initYCorrect() {
-        NCU n = new NCU(100, 100);
-        assertEquals(100, n.getY(), 0.001);
+        assertEquals(100, e.getY(), 0.001);
     }
 
     @Test
     public void getImageDoesNotReturnNull() {
-        NCU n = new NCU(5, 5);
-        assertTrue(n.getImage() != null);
+        assertTrue(e.getImage() != null);
     }
+    
+    @Test
+    public void movesCorrectAmount1() {
+        e.move(0);
+        assertEquals(101.06, e.getX(), 0.01);
+    }
+    
+    public void movesCorrectAmount2() {
+        e.move(0);
+        e.move(0);
+        e.move(0);
+        e.move(0);
+        assertEquals(104.24264, e.getX(), 0.001);
+    }
+    
+    @Test
+    public void revertsCorrectly() {
+        e.move(0);
+        e.revertMove();
+        assertEquals(100.0, e.getX(), 0.001);
+    }
+    
+    @Test
+    public void returnsCorrectDistanceToPlayer(){
+        assertEquals(1414.21356, e.getDistanceToPlayer(), 0.001);
+    }
+    
+    
 }

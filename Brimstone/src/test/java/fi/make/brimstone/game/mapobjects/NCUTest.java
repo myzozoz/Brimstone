@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.make.brimstone.game;
+package fi.make.brimstone.game.mapobjects;
 
+import fi.make.brimstone.game.mapobjects.NCU;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author make
  */
-public class EnemyTest {
+public class NCUTest {
 
-    public EnemyTest() {
+    public NCUTest() {
     }
 
     @BeforeClass
@@ -42,21 +43,21 @@ public class EnemyTest {
     //
     // @Test
     // public void hello() {}
-//    @Test
-//    public void initXCorrect() {
-//        Enemy e = new Enemy(100, 100);
-//        assertEquals(100, e.getX(), 0.001);
-//    }
-//
-//    @Test
-//    public void initYCorrect() {
-//        Enemy e = new Enemy(100, 100);
-//        assertEquals(100, e.getY(), 0.001);
-//    }
-//
-//    @Test
-//    public void getImageDoesNotReturnNull() {
-//        Enemy e = new Enemy(5, 5);
-//        assertTrue(e.getImage() != null);
-//    }
+    @Test
+    public void initXCorrect() {
+        NCU n = new NCU(100, 100);
+        assertEquals(100, n.getX(), 0.001);
+    }
+
+    @Test
+    public void initYCorrect() {
+        NCU n = new NCU(100, 100);
+        assertEquals(100, n.getY(), 0.001);
+    }
+
+    @Test
+    public void getImageDoesNotReturnNull() {
+        NCU n = new NCU(5, 5);
+        assertTrue(n.getImage() != null);
+    }
 }
