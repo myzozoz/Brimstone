@@ -12,7 +12,8 @@ import fi.make.brimstone.gui.DirectionListener;
 
 //Container class for all of the map objects
 /**
- * Takes care of the level and the objects within it.
+ * Takes care of the level and the objects within it. Calls static logic update
+ * functions from the Updater -class.
  *
  * @author make
  */
@@ -27,7 +28,7 @@ public class MapController {
     private DirectionListener dl;
 
     /**
-     *
+     * Initializes the playing field. 
      */
     public MapController() {
         //this.dl = dl;
@@ -66,10 +67,20 @@ public class MapController {
         return l;
     }
 
+    /**
+     * It is important that this method is called before trying to use the 
+     * MapController. Can't be set in the constructor, because the 
+     * DirectionListener class requires a MapController class in its 
+     * constructor.
+     * @param dl The DirectionListener initialized in the Game-class
+     */
     public void setDirectionListener(DirectionListener dl) {
         this.dl = dl;
     }
 
+    /**
+     * Sets the paused -state on/off
+     */
     public void togglePause() {
         if (paused) {
             paused = false;
@@ -78,6 +89,10 @@ public class MapController {
         }
     }
 
+    /**
+     *
+     * @return Pause status
+     */
     public boolean isPaused(){
         return paused;
     }
@@ -121,7 +136,7 @@ public class MapController {
      * class. It takes care of updating the logic side of the game.
      *
      * @param dTime Time since last update.
-     * @param dl Reference to the KeyListener class.
+     * @return Returning false signals the Game class to stop looping.
      */
     public boolean mapUpdate(long dTime) {
         if (!paused) {

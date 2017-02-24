@@ -8,7 +8,7 @@ import fi.make.brimstone.gui.DirectionListener;
 //Controller class for the game logic, middle point between the logic and GUI
 
 /**
- *
+ * Umbrella class that works as the connecting layer between gui and game logic.
  * @author make
  */
 public class Game {
@@ -22,7 +22,8 @@ public class Game {
     private long lastFrame;
 
     /**
-     *
+     * Entry point for the entire program. Calls the private loop()-function.
+     * Initializes both graphics and game logic
      */
     public Game() {
         map = new MapController();

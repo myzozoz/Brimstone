@@ -4,7 +4,8 @@ import fi.make.brimstone.helpers.Vector;
 import fi.make.brimstone.helpers.Variables;
 import fi.make.brimstone.helpers.FlameDirection;
 /**
- *
+ * The player class. Possesses methods to update position based on acceleration
+ * and dTime.
  * @author make
  */
 public class Player extends MapObject {
@@ -25,7 +26,8 @@ public class Player extends MapObject {
     }
 
     /**
-     *
+     * Changes the player's location based on the current speed vector. Also 
+     * updates the flame's length.
      * @param dTime Time since last update (ms).
      */
     public void updatePosition(long dTime) {
@@ -35,9 +37,9 @@ public class Player extends MapObject {
     }
 
     /**
-     *
+     * Accelerates the player based on a constant. Also roofs the player's speed.
      * @param x Direction on the x-axis.
-     * @param y
+     * @param y Direction on the y-axis
      * @param dTime Time since last update (ms).
      */
     public void accelerate(double x, double y, long dTime) {
@@ -51,7 +53,9 @@ public class Player extends MapObject {
 
     /**
      * Decelerates the player. Stops him at 0.
-     *
+     * Vertical and Horizontal deceleration have been divided in order to not
+     * affect each other. (e.g., the player can accelerate in the 'up' direction, 
+     * but decelerate in the 'right' direction.
      * @param dTime Time since last update (ms).
      */
     public void decelerateVertical(long dTime) {
@@ -72,7 +76,10 @@ public class Player extends MapObject {
     }
 
     /**
-     *
+     * Decelerates the player. Stops him at 0.
+     * Vertical and Horizontal deceleration have been divided in order to not
+     * affect each other. (e.g., the player can accelerate in the 'up' direction, 
+     * but decelerate in the 'right' direction.
      * @param dTime Time since last update (ms).
      */
     public void decelerateHorizontal(long dTime) {
@@ -94,28 +101,40 @@ public class Player extends MapObject {
 
     /**
      *
-     * @return
+     * @return Speed as a vector.
      */
     public Vector getSpeed() {
         return speed;
     }
     
+    /**
+     *
+     * @return The absolute speed value.
+     */
     public double getSpeedAbs() {
         return Math.sqrt(Math.pow(speed.x, 2) + Math.pow(speed.y, 2));
     }
     
+    /**
+     *
+     * @return Direction normalized.
+     */
     public Vector getDirection() {
         return new Vector(speed.x / getSpeedAbs(), speed.y / getSpeedAbs());
     }
 
     /**
      *
-     * @param newSpeed
+     * @param newSpeed Speeds can be set both via Vector or absolute value (double)
      */
     public void setSpeed(Vector newSpeed) {
         speed = newSpeed;
     }
     
+    /**
+     *
+     * @param spd Speeds can be set both via Vector or absolute value (double)
+     */
     public void setSpeed(double spd){
         this.speed.x = getDirection().x * spd;
         this.speed.y = getDirection().y * spd;
@@ -137,18 +156,33 @@ public class Player extends MapObject {
         this.y = y;
     }
     
+    /**
+     * Calculuates how long the player's flame should be.
+     */
     public void setFlameLength(){
         flameLength = (int)(3.0 * getSpeedAbs());
     }
     
+    /**
+     *
+     * @return
+     */
     public int getFlameLength(){
         return flameLength;
     }
     
+    /**
+     *
+     * @return
+     */
     public FlameDirection getFlameDir(){
         return flameDir;
     }
     
+    /**
+     *
+     * @param f
+     */
     public void setFlameDir(FlameDirection f){
         flameDir = f;
     }

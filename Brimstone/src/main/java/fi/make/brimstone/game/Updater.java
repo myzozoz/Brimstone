@@ -14,7 +14,27 @@ import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.CollisionManager;
 import fi.make.brimstone.helpers.Vector;
 
+/**
+ *
+ * @author make
+ */
 public class Updater {
+
+    /**
+     * update(...) is a broader method, that edits the status of the items that
+     * are simply contained inside the MapController class. Due to being static,
+     * receives all of the editable objects as parameters.
+     * 
+     * @param dTime Elapsed time since last update.
+     * @param dl DirecionListener.
+     * @param enemies List of Enemies
+     * @param player The player.
+     * @param lvl Current level.
+     * @param flames List of flame-objects
+     * @param ncus List of walls.
+     * @return Returns a boolean that the MapController passes on to Game. Signals
+     * Game to stop looping if false.
+     */
     public static boolean update(long dTime, DirectionListener dl, List<Enemy> enemies, Player player, Level lvl, List<Flame> flames, List<NCU> ncus) {
         boolean gameContinues = true;
         Updater.updatePlayer(dTime, dl, player);
@@ -115,6 +135,12 @@ public class Updater {
         }
     }
 
+    /**
+     * Calculates the positions and creates new flame -objects of correct 
+     * orientation. Always clears before recalculating.
+     * @param player The player.
+     * @param flames List of the flames.
+     */
     public static void playerFlames(Player player, List<Flame> flames) {
         flames.clear();
         for (int i = 0; i < player.getFlameLength(); i++) {

@@ -14,7 +14,6 @@ import fi.make.brimstone.game.mapobjects.flames.LeftFlame;
 import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.FlameDirection;
 import fi.make.brimstone.helpers.Vector;
-import java.lang.reflect.Method;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,17 +36,29 @@ public class UpdaterTest {
     List<NCU> ncus;
     List<Flame> flames;
 
+    /**
+     *
+     */
     public UpdaterTest() {
     }
 
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
 
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         flames = new ArrayList();
@@ -68,6 +79,9 @@ public class UpdaterTest {
         ncus.add(new NCU(1064, 264));
     }
 
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
@@ -77,17 +91,27 @@ public class UpdaterTest {
     //
     // @Test
     // public void hello() {}
+
+    /**
+     *
+     */
     @Test
     public void firstUpdateReturnsTrue() {
         assertTrue(Updater.update(0, new DirectionListener(new MapController()), enemies, player, lvl0, flames, ncus));
     }
 
+    /**
+     *
+     */
     @Test
     public void createsNoFlamesWhenPlayerIsStandingStill() {
         Updater.playerFlames(player, flames);
         assertEquals(flames.size(), 0);
     }
 
+    /**
+     *
+     */
     @Test
     public void createsFlamesWhenPlayerIsMoving() {
         player.setSpeed(new Vector(1.5, 1.5));
@@ -96,6 +120,9 @@ public class UpdaterTest {
         assertEquals(6, flames.size());
     }
 
+    /**
+     *
+     */
     @Test
     public void createsFlamesOfCorrectOrientation() {
         player.setSpeed(new Vector(1.5, 1.5));

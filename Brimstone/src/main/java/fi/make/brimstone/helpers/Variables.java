@@ -1,5 +1,9 @@
 package fi.make.brimstone.helpers;
 
+/**
+ * Contains the values that are runtime constants. Confusingly named "Variables".
+ * @author make
+ */
 public class Variables {
 
     public static final String PLAYER_IMAGE = "pic/Player.png";
