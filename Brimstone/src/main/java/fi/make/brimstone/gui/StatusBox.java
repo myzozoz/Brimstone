@@ -24,7 +24,7 @@ public class StatusBox extends JLabel {
         String displayText = "";
 
         if (m.isPaused()) {
-            displayText += "PAUSED";
+            displayText += "START";
         }
 
         setText(displayText);

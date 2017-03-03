@@ -13,6 +13,7 @@ import fi.make.brimstone.game.mapobjects.flames.UpFlame;
 import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.CollisionManager;
 import fi.make.brimstone.helpers.Vector;
+import java.util.ArrayList;
 
 /**
  *
@@ -105,8 +106,8 @@ public class Updater {
 
     private static void updateEnemies(long dTime, List<Enemy> enemies, List<Flame> flames, List<NCU> ncus) {
         for (int i = 0; i < enemies.size(); i++) {
-            for (Flame f : flames) {
-                if (CollisionManager.collides(enemies.get(i), f)) {
+            for (int f = 0; f < flames.size(); f++) {
+                if (CollisionManager.collides(enemies.get(i), flames.get(f))) {
                     enemies.remove(i);
                     return;
                 }
@@ -142,23 +143,43 @@ public class Updater {
      * @param player The player.
      * @param flames List of the flames.
      */
-    public static void playerFlames(Player player, List<Flame> flames) {
-        flames.clear();
+    public static ArrayList<Flame> playerFlames(Player player, List<Flame> flames) {
+        ArrayList<Flame> nflames = new ArrayList();
         for (int i = 0; i < player.getFlameLength(); i++) {
             switch (player.getFlameDir()) {
                 case UP:
-                    flames.add(new UpFlame(player.getX(), player.getY() - 32 * (i + 1)));
+                    nflames.add(new UpFlame(player.getX(), player.getY() - 32 * (i + 1)));
                     break;
                 case DOWN:
-                    flames.add(new DownFlame(player.getX(), player.getY() + 32 * (i + 1)));
+                    nflames.add(new DownFlame(player.getX(), player.getY() + 32 * (i + 1)));
                     break;
                 case RIGHT:
-                    flames.add(new RightFlame(player.getX() + 32 * (i + 1), player.getY()));
+                    nflames.add(new RightFlame(player.getX() + 32 * (i + 1), player.getY()));
                     break;
                 case LEFT:
-                    flames.add(new LeftFlame(player.getX() - 32 * (i + 1), player.getY()));
+                    nflames.add(new LeftFlame(player.getX() - 32 * (i + 1), player.getY()));
                     break;
             }
+        }
+        return nflames;
+    }
+
+    public static void initializeWalls(List<NCU> walls) {
+        for (int x = 300; x < 1300; x += 32) {
+            walls.add(new NCU(x, 300));
+            walls.add(new NCU(x, 1200));
+            walls.add(new NCU(x, 2100));
+            walls.add(new NCU(x, 2700));
+        }
+
+        for (int x = 2000; x < 2700; x += 32) {
+            walls.add(new NCU(x,800));
+            walls.add(new NCU(x,1700));
+        }
+        
+        for (int y = 300; y < 1000; y+= 32) {
+            walls.add(new NCU(1650, y));
+            walls.add(new NCU(1650, y + 1000));
         }
     }
 }

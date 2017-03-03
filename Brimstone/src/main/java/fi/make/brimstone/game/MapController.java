@@ -8,6 +8,7 @@ import fi.make.brimstone.game.mapobjects.Player;
 import fi.make.brimstone.game.mapobjects.flames.Flame;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 import fi.make.brimstone.gui.DirectionListener;
 
 //Container class for all of the map objects
@@ -26,12 +27,16 @@ public class MapController {
     private List<NCU> ncus;
     private List<Flame> flames;
     private DirectionListener dl;
+    private int enemiesKilled;
+    private int enemiesAllowedOnMap;
+    private Random rand;
 
     /**
      * Initializes the playing field.
      */
     public MapController() {
         //this.dl = dl;
+        rand = new Random();
         flames = new ArrayList();
         enemies = new ArrayList();
         ncus = new ArrayList();
@@ -40,15 +45,9 @@ public class MapController {
         //TEST
         player = new Player(50, 50);
         lvl0 = new Level(0, 0);
-        enemies.add(new Enemy(1000, 100, player));
-        enemies.add(new Enemy(50, 1000, player));
         enemies.add(new Enemy(2000, 2000, player));
-        enemies.add(new Enemy(2000, 200, player));
-        ncus.add(new NCU(1000, 200));
-        ncus.add(new NCU(1000, 232));
-        ncus.add(new NCU(1000, 264));
-        ncus.add(new NCU(1032, 264));
-        ncus.add(new NCU(1064, 264));
+        enemiesAllowedOnMap = 1;
+        Updater.initializeWalls(ncus);
         //TEST
     }
 
@@ -57,7 +56,7 @@ public class MapController {
      * @return Returns all MapObjects possessed by the MapController as a List.
      */
     public List<MapObject> getAllObjects() {
-        Updater.playerFlames(player, flames);
+        flames = Updater.playerFlames(player, flames);
         List<MapObject> l = new ArrayList();
         l.add(lvl0);
         l.add(player);
@@ -141,8 +140,37 @@ public class MapController {
      */
     public boolean mapUpdate(long dTime) {
         if (!paused) {
+            spawnEnemiesOnMap();
             return Updater.update(dTime, dl, enemies, player, lvl0, flames, ncus);
         }
         return true;
     }
+
+    public int getEnemyAmount() {
+        return enemies.size();
+    }
+
+    public int getEnemiesKilled() {
+        return enemiesKilled;
+    }
+
+    private void spawnEnemiesOnMap() {
+        if (enemies.size() < enemiesAllowedOnMap) {
+            spawnEnemy();
+            spawnEnemy();
+            enemiesKilled++;
+            enemiesAllowedOnMap++;
+        }
+    }
+
+    public void spawnEnemy() {
+        int x = rand.nextInt(2900) + 50;
+        int y = rand.nextInt(2900) + 50;
+        while (Math.abs(x - player.getX()) < 100 && Math.abs(y - player.getX()) < 100) {
+            x = rand.nextInt(2900) + 50;
+            y = rand.nextInt(2900) + 50;
+        }
+        enemies.add(new Enemy(x, y, player));
+    }
+
 }
