@@ -130,16 +130,10 @@ public class UpdaterTest {
         ArrayList<Flame> newFlames = Updater.playerFlames(player);
         assertEquals(LeftFlame.class, newFlames.get(0).getClass());
     }
-//    
-//    @Test
-//    public void clearsFlamesAfterDeceleration() {
-//        player.setSpeed(2.0);
-//        player.setFlameLength();
-//        Updater.playerFlames(player, flames);
-//        player.setSpeed(0);
-//        player.setFlameLength();
-//        Updater.playerFlames(player, flames);
-//        
-//        assertEquals(0, flames.size());
-//    }
+
+    @Test
+    public void spawnsNewEnemy() {
+        Updater.spawnEnemy(player, enemies);
+        assertEquals(5, enemies.size());
+    }
 }

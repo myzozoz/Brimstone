@@ -8,19 +8,19 @@ package fi.make.brimstone.helpers;
 public enum FlameDirection {
 
     /**
-     *
+     * Up.
      */
     UP,
     /**
-     *
+     * Down.
      */
     DOWN,
     /**
-     *
+     * Left.
      */
     LEFT,
     /**
-     *
+     * Right.
      */
     RIGHT
 }

@@ -9,19 +9,19 @@ package fi.make.brimstone.helpers;
 public class Vector {
 
     /**
-     *
+     * The first value of the pair.
      */
     public double x;
 
     /**
-     *
+     * The second value of the pair.
      */
     public double y;
 
     /**
-     *
-     * @param x
-     * @param y
+     * Initializes the value pair.
+     * @param x First value.
+     * @param y Second value.
      */
     public Vector(double x, double y) {
         this.x = x;
@@ -29,9 +29,9 @@ public class Vector {
     }
 
     /**
-     * Can calculate its own absolute value.
+     * Can calculate its own absolute distance.
      *
-     * @return
+     * @return The absolute distance of the vector's value pair.
      */
     public double getAbs() {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));

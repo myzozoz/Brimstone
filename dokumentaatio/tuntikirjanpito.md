@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 24.02.2017 | 5.0h | JUnit -testejä sekä dokumentaatiota. Tehty jar-tiedosto.
 03.03.2017 | 2.0h | Vihollisia syntyy nyt enemmän sitä mukaa kun niitä tappaa, lisätty pause-teksti ja vihollisten lukumäärä guiin.
 05.03.2017 | 2.0h | Pientä säätöä ja JavaDoccailua.
+05.03.2017 | 3.0h | Projektin palautuksen viimeistelyä.

@@ -11,35 +11,35 @@ import java.awt.event.KeyEvent;
 public enum Keys {
 
     /**
-     *
+     * Up.
      */
     UP("Up", KeyEvent.VK_UP),
     /**
-     *
+     * Down.
      */
     DOWN("Down", KeyEvent.VK_DOWN),
     /**
-     *
+     * Left.
      */
     LEFT("Left", KeyEvent.VK_LEFT),
     /**
-     *
+     * Right.
      */
     RIGHT("Right", KeyEvent.VK_RIGHT),
     /**
-     *
+     * W.
      */
     W("W", KeyEvent.VK_W),
     /**
-     *
+     * A.
      */
     A("A", KeyEvent.VK_A),
     /**
-     *
+     * S.
      */
     S("S", KeyEvent.VK_S),
     /**
-     *
+     * D.
      */
     D("D", KeyEvent.VK_D);
 
@@ -51,16 +51,16 @@ public enum Keys {
     private String name;
 
     /**
-     *
-     * @return
+     * Key value getter.
+     * @return Key ID number.
      */
     public int getKey() {
         return key;
     }
 
     /**
-     *
-     * @return
+     * Key name getter.
+     * @return Key name.
      */
     public String getName() {
         return name;

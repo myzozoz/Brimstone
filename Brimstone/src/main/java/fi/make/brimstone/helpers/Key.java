@@ -13,9 +13,9 @@ public class Key {
     private String name;
 
     /**
-     *
-     * @param name
-     * @param key
+     * Constructor initializes the class.
+     * @param name Name of the key.
+     * @param key The keys value.
      */
     public Key(String name, int key) {
         this.name = name;
@@ -24,40 +24,38 @@ public class Key {
     }
 
     /**
-     *
-     * @return
+     * Key value getter.
+     * @return Key value.
      */
     public int getKey() {
         return key;
     }
 
     /**
-     *
-     * @return
+     * Key name getter.
+     * @return Key name.
      */
     public String getKeyName() {
         return name;
     }
 
     /**
-     *
+     * Called, when a KeyPressed event for a key of interest is received.
      */
     public void press() {
         pressed = true;
-//        System.out.println(name + " pressed");
     }
 
     /**
-     *
+     * Called when a KeyReleased event for a key of interest is received.
      */
     public void release() {
         pressed = false;
-//        System.out.println(name + "released");
     }
 
     /**
-     *
-     * @return
+     * The method called by the game itself, to see if a key is pressed.
+     * @return The status of the key.
      */
     public boolean isPressed() {
         return pressed;
