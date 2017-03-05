@@ -12,8 +12,8 @@ public class UpFlame extends Flame {
     /**
      * Calls the super constructor.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public UpFlame(double x, double y) {
         super(x, y, Variables.FLAME_UP_IMAGE);

@@ -16,7 +16,7 @@ public class Enemy extends MapObject {
     private double[] oldLocation;
 
     /**
-     *
+     * Calls the super constructor.
      * @param x Initial x location.
      * @param y Initial y location.
      * @param p The player it chases
@@ -54,7 +54,7 @@ public class Enemy extends MapObject {
     }
 
     /**
-     *
+     * Calculates the distance to the player.
      * @return The absolute distance to the player.
      */
     public double getDistanceToPlayer() {

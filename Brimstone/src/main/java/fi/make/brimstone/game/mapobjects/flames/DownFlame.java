@@ -10,10 +10,10 @@ import fi.make.brimstone.helpers.Variables;
 public class DownFlame extends Flame {
 
     /**
-     * Calls the super constructor
+     * Calls the super constructor.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public DownFlame(double x, double y) {
         super(x, y, Variables.FLAME_DOWN_IMAGE);

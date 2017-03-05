@@ -60,7 +60,6 @@ public class Updater {
         } else {
             player.decelerateVertical(dTime);
         }
-
         if (dl.isKeyDown("A") || dl.isKeyDown("D")) {
             if (dl.isKeyDown("A")) {
                 player.accelerate(-1d, 0d, dTime);
@@ -76,27 +75,21 @@ public class Updater {
     private static boolean checkPlayerCollisions(List<Enemy> enemies, Player player, Level lvl, List<NCU> ncus) {
         double speedX = player.getSpeed().x;
         double speedY = player.getSpeed().y;
-
         boolean gameContinues = true;
 
-        //OUTER WALLS
-        if (player.getX() < 32 || player.getX() > lvl.getLevelDimensions().x - 64) {
+        if (player.getX() < 32 || player.getX() > lvl.getLevelDimensions().x - 64) {         //OUTER WALLS
             player.setSpeed(new Vector(-0.5 * speedX, speedY));
         }
         if (player.getY() < 32 || player.getY() > lvl.getLevelDimensions().y - 64) {
             player.setSpeed(new Vector(speedX, -0.5 * speedY));
         }
 
-        //ENEMIES
-        for (Enemy e : enemies) {
+        for (Enemy e : enemies) {                                                           //ENEMIES
             if (CollisionManager.collides(player, e)) {
                 gameContinues = false;
-
-                //TODO: game over
             }
         }
 
-        //NCUs
         for (NCU n : ncus) {
             if (CollisionManager.collides(player, n)) {
                 CollisionManager.redirectPlayerFromWall(player, n);
@@ -104,7 +97,6 @@ public class Updater {
         }
 
         CollisionManager.unStickPlayer(player, lvl);
-
         return gameContinues;
     }
 
@@ -116,16 +108,13 @@ public class Updater {
                     return;
                 }
             }
-
             boolean canMove = true;
             for (NCU n : ncus) {
                 if (CollisionManager.collides(enemies.get(i), n)) {
                     canMove = false;
                 }
             }
-
-            //takes care of enemy collision by stopping the one further away from the player
-            for (int a = 0; a < enemies.size(); a++) {
+            for (int a = 0; a < enemies.size(); a++) { //takes care of enemy collision by stopping the one further away from the player
                 if (a != i && CollisionManager.collides(enemies.get(a), enemies.get(i))) {
                     if (enemies.get(i).getDistanceToPlayer() > enemies.get(a).getDistanceToPlayer()) {
                         canMove = false;
@@ -181,12 +170,10 @@ public class Updater {
             walls.add(new NCU(x, 2100));
             walls.add(new NCU(x, 2700));
         }
-
         for (int x = 2000; x < 2700; x += 32) {
             walls.add(new NCU(x, 800));
             walls.add(new NCU(x, 1700));
         }
-
         for (int y = 300; y < 1000; y += 32) {
             walls.add(new NCU(1650, y));
             walls.add(new NCU(1650, y + 1000));

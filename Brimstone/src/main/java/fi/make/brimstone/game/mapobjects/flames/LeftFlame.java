@@ -12,8 +12,8 @@ public class LeftFlame extends Flame {
     /**
      * Calls the super constructor.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public LeftFlame(double x, double y) {
         super(x, y, Variables.FLAME_LEFT_IMAGE);

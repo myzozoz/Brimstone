@@ -12,10 +12,11 @@ import fi.make.brimstone.game.mapobjects.MapObject;
 public class Flame extends MapObject {
 
     /**
+     * Calls the super constructor.
      *
-     * @param x
-     * @param y
-     * @param imagePath
+     * @param x x location.
+     * @param y u location.
+     * @param imagePath Path of the image file.
      */
     public Flame(double x, double y, String imagePath) {
         super(x, y, imagePath);

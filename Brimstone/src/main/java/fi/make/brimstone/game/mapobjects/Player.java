@@ -17,6 +17,7 @@ public class Player extends MapObject {
     private FlameDirection flameDir;
 
     /**
+     * Calls the super constructor.
      *
      * @param x Initial location on x-axis.
      * @param y Initial location on y-axis.
@@ -107,7 +108,7 @@ public class Player extends MapObject {
     }
 
     /**
-     *
+     * Speed vector getter.
      * @return Speed as a vector.
      */
     public Vector getSpeed() {
@@ -115,7 +116,7 @@ public class Player extends MapObject {
     }
 
     /**
-     *
+     * Speed double getter.
      * @return The absolute speed value.
      */
     public double getSpeedAbs() {
@@ -123,25 +124,24 @@ public class Player extends MapObject {
     }
 
     /**
-     *
-     * @return Direction normalized.
+     * Direction getter.
+     * @return Direction normalized as vector.
      */
     public Vector getDirection() {
         return new Vector(speed.x / getSpeedAbs(), speed.y / getSpeedAbs());
     }
 
     /**
-     *
-     * @param newSpeed Speeds can be set both via Vector or absolute value
-     * (double)
+     * Speeds can be set both via Vector or absolute value (double).
+     * @param newSpeed Speeds as a vector.
      */
     public void setSpeed(Vector newSpeed) {
         speed = newSpeed;
     }
 
     /**
-     *
-     * @param spd Speeds can be set both via Vector or absolute value (double)
+     * Speeds can be set both via Vector or absolute value (double).
+     * @param spd Speed as double.
      */
     public void setSpeed(double spd) {
         this.speed.x = getDirection().x * spd;
@@ -149,16 +149,16 @@ public class Player extends MapObject {
     }
 
     /**
-     *
-     * @param x
+     * X coordinate setter.
+     * @param x x location.
      */
     public void setX(double x) {
         this.x = x;
     }
 
     /**
-     *
-     * @param y
+     * Y coordinate setter.
+     * @param y y location.
      */
     public void setY(double y) {
         this.y = y;
@@ -172,25 +172,24 @@ public class Player extends MapObject {
     }
 
     /**
-     *
-     * @return
+     * Flame length getter.
+     * @return Length of the player's flame.
      */
     public int getFlameLength() {
         return flameLength;
     }
 
     /**
-     *
-     * @return
+     * A getter for the player's flames' direction.
+     * @return Direction of the player's flame.
      */
     public FlameDirection getFlameDir() {
         return flameDir;
     }
 
     /**
-     *
-     * @param f An enum value for the four basic directions (up, down, left,
-     * right).
+     * Setter for the player's flames' direction.
+     * @param f A FlameDirction enum value.
      */
     public void setFlameDir(FlameDirection f) {
         flameDir = f;

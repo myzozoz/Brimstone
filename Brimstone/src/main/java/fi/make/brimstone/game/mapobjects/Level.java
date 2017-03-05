@@ -1,6 +1,5 @@
 package fi.make.brimstone.game.mapobjects;
 
-import fi.make.brimstone.game.mapobjects.MapObject;
 import fi.make.brimstone.helpers.Variables;
 import fi.make.brimstone.helpers.Vector;
 
@@ -14,14 +13,15 @@ public class Level extends MapObject {
     /**
      * The constructor calls the super constructor.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public Level(double x, double y) {
         super(x, y, Variables.LEVEL_0_IMAGE);
     }
 
     /**
+     * Returns the width and height of the map's image file.
      *
      * @return Returns the width and height of the map's image file.
      */

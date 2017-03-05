@@ -77,7 +77,7 @@ public class MapController {
     }
 
     /**
-     * Sets the paused -state on/off
+     * Sets the paused -state on/off.
      */
     public void togglePause() {
         if (paused) {
@@ -88,6 +88,7 @@ public class MapController {
     }
 
     /**
+     * Pause state getter.
      *
      * @return Pause status
      */
@@ -96,34 +97,36 @@ public class MapController {
     }
 
     /**
+     * Adds an enemy in a specific location.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public void addEnemy(int x, int y) {
         enemies.add(new Enemy(x, y, player));
     }
 
     /**
+     * Adds an NCU in a specific location.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public void addNCU(int x, int y) {
         ncus.add(new NCU(x, y));
     }
 
     /**
-     *
-     * @return
+     * Player getter.
+     * @return Player object.
      */
     public Player getPlayer() {
         return player;
     }
 
     /**
-     *
-     * @return
+     * Enemy getter.
+     * @return List of Enemy objects.
      */
     public List<Enemy> getEnemies() {
         return enemies;
@@ -145,16 +148,16 @@ public class MapController {
     }
 
     /**
-     *
-     * @return
+     * Getter for the amount of living enemies.
+     * @return Living Enemy objects as int.
      */
     public int getEnemyAmount() {
         return enemies.size();
     }
 
     /**
-     *
-     * @return
+     * Getter for the amount of enemies the player has killed.
+     * @return Killed Enemy objects as int.
      */
     public int getEnemiesKilled() {
         return enemiesKilled;

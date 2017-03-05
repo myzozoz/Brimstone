@@ -13,8 +13,8 @@ public class NCU extends MapObject {
     /**
      * Constructor calls the super constructor.
      *
-     * @param x
-     * @param y
+     * @param x x location.
+     * @param y y location.
      */
     public NCU(double x, double y) {
         super(x, y, Variables.WALL_IMAGE);
