@@ -14,3 +14,4 @@ Päivä | Tunnit | Kuvaus
 20.02.2017 | 2.0h | Pelaaja ampuu nyt liekkejä, joilla hän voi tappaa vastustajia
 21.02.2017 | 2.0h | Siivottu varsinainen logiikka pois MapController -luokasta, sen sijaan käytetään uuden Updater -metodin staattisia. Lisätty pause ja game over.
 24.02.2017 | 5.0h | JUnit -testejä sekä dokumentaatiota. Tehty jar-tiedosto.
+03.03.2017 | 2.0h | Vihollisia syntyy nyt enemmän sitä mukaa kun niitä tappaa, lisätty pause-teksti ja vihollisten lukumäärä guiin.

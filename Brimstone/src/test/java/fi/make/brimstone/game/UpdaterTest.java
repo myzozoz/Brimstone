@@ -104,8 +104,8 @@ public class UpdaterTest {
      */
     @Test
     public void createsNoFlamesWhenPlayerIsStandingStill() {
-        Updater.playerFlames(player, flames);
-        assertEquals(flames.size(), 0);
+        ArrayList<Flame> newFlames = Updater.playerFlames(player);
+        assertEquals(newFlames.size(), 0);
     }
 
     /**
@@ -115,8 +115,8 @@ public class UpdaterTest {
     public void createsFlamesWhenPlayerIsMoving() {
         player.setSpeed(new Vector(1.5, 1.5));
         player.setFlameLength();
-        Updater.playerFlames(player, flames);
-        assertEquals(6, flames.size());
+        ArrayList<Flame> newFlames = Updater.playerFlames(player);
+        assertEquals(6, newFlames.size());
     }
 
     /**
@@ -127,8 +127,8 @@ public class UpdaterTest {
         player.setSpeed(new Vector(1.5, 1.5));
         player.setFlameLength();
         player.setFlameDir(FlameDirection.LEFT);
-        Updater.playerFlames(player, flames);
-        assertEquals(LeftFlame.class, flames.get(0).getClass());
+        ArrayList<Flame> newFlames = Updater.playerFlames(player);
+        assertEquals(LeftFlame.class, newFlames.get(0).getClass());
     }
 //    
 //    @Test

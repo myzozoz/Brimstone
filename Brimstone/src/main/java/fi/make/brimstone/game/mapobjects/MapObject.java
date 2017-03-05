@@ -7,7 +7,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
- * Abstract class template for drawable objects on the map.
+ * Abstract class template for drawable objects on the map. MapObjects need to
+ * have a location on the map and an Image.
  *
  * @author make
  */

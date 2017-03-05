@@ -11,6 +11,7 @@ import fi.make.brimstone.helpers.Variables;
 public class NCU extends MapObject {
 
     /**
+     * Constructor calls the super constructor.
      *
      * @param x
      * @param y

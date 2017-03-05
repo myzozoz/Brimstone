@@ -165,7 +165,7 @@ public class Player extends MapObject {
     }
 
     /**
-     * Calculuates how long the player's flame should be.
+     * Calculates how long the player's flame should be.
      */
     public void setFlameLength() {
         flameLength = (int) (3.0 * getSpeedAbs());
@@ -189,7 +189,8 @@ public class Player extends MapObject {
 
     /**
      *
-     * @param f
+     * @param f An enum value for the four basic directions (up, down, left,
+     * right).
      */
     public void setFlameDir(FlameDirection f) {
         flameDir = f;

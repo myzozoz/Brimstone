@@ -5,12 +5,14 @@ import fi.make.brimstone.helpers.Variables;
 import fi.make.brimstone.helpers.Vector;
 
 /**
+ * The level class contains the background for the playing board.
  *
  * @author make
  */
 public class Level extends MapObject {
 
     /**
+     * The constructor calls the super constructor.
      *
      * @param x
      * @param y

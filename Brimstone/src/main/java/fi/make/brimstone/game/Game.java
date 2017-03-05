@@ -8,7 +8,7 @@ import fi.make.brimstone.gui.DirectionListener;
 //Controller class for the game logic, middle point between the logic and GUI
 
 /**
- * Umbrella class that works as the connecting layer between gui and game logic.
+ * Umbrella class that works as the connecting layer between GUI and game logic.
  *
  * @author make
  */

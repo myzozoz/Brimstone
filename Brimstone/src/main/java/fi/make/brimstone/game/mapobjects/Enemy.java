@@ -1,7 +1,5 @@
 package fi.make.brimstone.game.mapobjects;
 
-import fi.make.brimstone.game.mapobjects.MapObject;
-import fi.make.brimstone.game.mapobjects.Player;
 import fi.make.brimstone.helpers.Variables;
 import fi.make.brimstone.helpers.Vector;
 

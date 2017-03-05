@@ -14,7 +14,8 @@ import fi.make.brimstone.gui.DirectionListener;
 //Container class for all of the map objects
 /**
  * Takes care of the level and the objects within it. Calls static logic update
- * functions from the Updater -class.
+ * functions from the Updater -class. This class defines the game mode, other
+ * classes are more or less game mode independent.
  *
  * @author make
  */
@@ -35,28 +36,25 @@ public class MapController {
      * Initializes the playing field.
      */
     public MapController() {
-        //this.dl = dl;
         rand = new Random();
         flames = new ArrayList();
         enemies = new ArrayList();
         ncus = new ArrayList();
         paused = true;
-        //Get the initial locations of all of the MapObjects that already exist
-        //TEST
         player = new Player(50, 50);
         lvl0 = new Level(0, 0);
         enemies.add(new Enemy(2000, 2000, player));
         enemiesAllowedOnMap = 1;
         Updater.initializeWalls(ncus);
-        //TEST
     }
 
     /**
+     * This method is called by the GUI for drawing the game.
      *
      * @return Returns all MapObjects possessed by the MapController as a List.
      */
     public List<MapObject> getAllObjects() {
-        flames = Updater.playerFlames(player, flames);
+        flames = Updater.playerFlames(player);
         List<MapObject> l = new ArrayList();
         l.add(lvl0);
         l.add(player);
@@ -146,31 +144,29 @@ public class MapController {
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEnemyAmount() {
         return enemies.size();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEnemiesKilled() {
         return enemiesKilled;
     }
 
     private void spawnEnemiesOnMap() {
         if (enemies.size() < enemiesAllowedOnMap) {
-            spawnEnemy();
-            spawnEnemy();
+            Updater.spawnEnemy(player, enemies);
+            Updater.spawnEnemy(player, enemies);
             enemiesKilled++;
             enemiesAllowedOnMap++;
         }
-    }
-
-    public void spawnEnemy() {
-        int x = rand.nextInt(2900) + 50;
-        int y = rand.nextInt(2900) + 50;
-        while (Math.abs(x - player.getX()) < 100 && Math.abs(y - player.getX()) < 100) {
-            x = rand.nextInt(2900) + 50;
-            y = rand.nextInt(2900) + 50;
-        }
-        enemies.add(new Enemy(x, y, player));
     }
 
 }

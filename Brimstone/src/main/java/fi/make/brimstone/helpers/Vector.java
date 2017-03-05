@@ -8,9 +8,21 @@ package fi.make.brimstone.helpers;
  */
 public class Vector {
 
+    /**
+     *
+     */
     public double x;
+
+    /**
+     *
+     */
     public double y;
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public Vector(double x, double y) {
         this.x = x;
         this.y = y;

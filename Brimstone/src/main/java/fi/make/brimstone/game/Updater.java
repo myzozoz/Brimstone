@@ -14,8 +14,12 @@ import fi.make.brimstone.gui.DirectionListener;
 import fi.make.brimstone.helpers.CollisionManager;
 import fi.make.brimstone.helpers.Vector;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
+ * Updater is a logic class that has no class variables of its own. It takes
+ * care of player and enemy movement, and recreating the flame objects for every
+ * frame.
  *
  * @author make
  */
@@ -141,9 +145,9 @@ public class Updater {
      * orientation. Always clears before recalculating.
      *
      * @param player The player.
-     * @param flames List of the flames.
+     * @return List of flame -objects.
      */
-    public static ArrayList<Flame> playerFlames(Player player, List<Flame> flames) {
+    public static ArrayList<Flame> playerFlames(Player player) {
         ArrayList<Flame> nflames = new ArrayList();
         for (int i = 0; i < player.getFlameLength(); i++) {
             switch (player.getFlameDir()) {
@@ -164,6 +168,12 @@ public class Updater {
         return nflames;
     }
 
+    /**
+     * A helper function that creates the walls for the level. Could be changed
+     * to read specific wall locations from a file for example.
+     *
+     * @param walls List of the walls to be used
+     */
     public static void initializeWalls(List<NCU> walls) {
         for (int x = 300; x < 1300; x += 32) {
             walls.add(new NCU(x, 300));
@@ -173,13 +183,31 @@ public class Updater {
         }
 
         for (int x = 2000; x < 2700; x += 32) {
-            walls.add(new NCU(x,800));
-            walls.add(new NCU(x,1700));
+            walls.add(new NCU(x, 800));
+            walls.add(new NCU(x, 1700));
         }
-        
-        for (int y = 300; y < 1000; y+= 32) {
+
+        for (int y = 300; y < 1000; y += 32) {
             walls.add(new NCU(1650, y));
             walls.add(new NCU(1650, y + 1000));
         }
+    }
+
+    /**
+     * Spawns an enemy in a random location on the map. Rerandoms the location
+     * until it's at least 100 units from the player.
+     *
+     * @param player The player.
+     * @param enemies The enemies
+     */
+    public static void spawnEnemy(Player player, List<Enemy> enemies) {
+        Random rand = new Random();
+        int x = rand.nextInt(2900) + 50;
+        int y = rand.nextInt(2900) + 50;
+        while (Math.abs(x - player.getX()) < 100 && Math.abs(y - player.getX()) < 100) {
+            x = rand.nextInt(2900) + 50;
+            y = rand.nextInt(2900) + 50;
+        }
+        enemies.add(new Enemy(x, y, player));
     }
 }
